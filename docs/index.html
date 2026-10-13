@@ -68,6 +68,7 @@
 <main>
   <section class="filters" aria-label="Filters">
     <div class="row"><span class="label">Function</span><span id="f-fn"></span></div>
+    <div class="row" id="row-spec"><span class="label">Specialty</span><span id="f-spec"></span></div>
     <div class="row"><span class="label">Seniority</span><span id="f-sen"></span></div>
     <div class="row"><span class="label">Region</span><span id="f-region"></span></div>
     <div class="row"><span class="label">Posted</span><span id="f-posted"></span></div>
@@ -93,11 +94,12 @@ let SEN_LABELS = {"c-level":"C-level","vp-head":"VP / Head","director":"Director
 const REGION_LABELS = {"bay-area":"Bay Area","west-coast":"West Coast","remote-us":"Remote (US)"};
 const POSTED = [["1","24 hours"],["3","3 days"],["7","7 days"],["14","14 days"],["30","30 days"],["all","Any time"]];
 const SRC_LABELS = {"tracker":"My tracker","broad":"Broader list"};
-const MULTI = ["fn","sen","region","seg","src"];
+const MULTI = ["fn","spec","sen","region","seg","src"];
+let SPEC_LABELS = {};
 const PAGE = 100;
 
 // Empty selection means "all". Defaults: every function and level, Bay Area + remote, last 7 days.
-const DEFAULTS = { fn: [], sen: [], region: ["bay-area","remote-us"], posted: ["7"], seg: [], src: [] };
+const DEFAULTS = { fn: [], spec: [], sen: [], region: ["bay-area","remote-us"], posted: ["7"], seg: [], src: [] };
 
 const params = new URLSearchParams(location.search);
 const state = {};
@@ -110,6 +112,8 @@ let shown = PAGE;
 let DATA = { roles: [] };
 let SEG_LABELS = {};
 
+// A repost counts as recent activity, so it shows up under "Posted in the last N days"
+function latest(r) { return r.reposted && (!r.posted || r.reposted > r.posted.slice(0, 10)) ? r.reposted : r.posted; }
 function daysAgo(iso) {
   if (!iso) return Infinity;
   return (Date.now() - new Date(iso).getTime()) / 86400000;
@@ -128,11 +132,12 @@ function matches(r, skip) {
   const maxDays = state.posted[0] === "all" ? Infinity : Number(state.posted[0] || 7);
   const q = state.q.trim().toLowerCase();
   return (skip === "fn" || !state.fn.length || state.fn.includes(r.fn)) &&
+    (skip === "spec" || !state.spec.length || state.spec.includes(r.spec)) &&
     (skip === "sen" || !state.sen.length || state.sen.includes(r.sen)) &&
     (skip === "region" || !state.region.length || r.regions.some(x => state.region.includes(x))) &&
     (skip === "seg" || !state.seg.length || state.seg.includes(r.segment)) &&
     (skip === "src" || !state.src.length || state.src.includes(r.source)) &&
-    (skip === "posted" || daysAgo(r.posted) <= maxDays) &&
+    (skip === "posted" || daysAgo(latest(r)) <= maxDays) &&
     (!q || (r.title + " " + r.company).toLowerCase().includes(q));
 }
 
@@ -143,7 +148,7 @@ function chipRow(key, labels, single) {
   if (!single) {
     for (const r of DATA.roles) {
       if (!matches(r, key)) continue;
-      const vals = key === "region" ? r.regions : [key === "fn" ? r.fn : key === "sen" ? r.sen : key === "seg" ? r.segment : r.source];
+      const vals = key === "region" ? r.regions : [key === "fn" ? r.fn : key === "spec" ? r.spec : key === "sen" ? r.sen : key === "seg" ? r.segment : r.source];
       for (const v of vals) counts[v] = (counts[v] || 0) + 1;
     }
   }
@@ -180,6 +185,8 @@ function update() { shown = PAGE; render(); }
 function render() {
   syncURL();
   chipRow("fn", Object.entries(FN_LABELS));
+  chipRow("spec", Object.entries(SPEC_LABELS));
+  document.getElementById("row-spec").style.display = Object.keys(SPEC_LABELS).length ? "" : "none";
   chipRow("sen", Object.entries(SEN_LABELS));
   chipRow("region", Object.entries(REGION_LABELS));
   chipRow("posted", POSTED, true);
@@ -199,11 +206,12 @@ function render() {
         <a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>
         <div class="company">${esc(r.company)}${r.source === "tracker" ? ' <span class="tag">Tracker</span>' : ""}</div>
         <div class="meta">${esc(r.locations.join(" · "))}</div>
-        <div>${r.regions.map(x => `<span class="tag">${esc(REGION_LABELS[x] || x)}</span>`).join("")}<span class="tag">${esc(SEN_LABELS[r.sen] || r.sen)}</span><span class="tag">${esc(FN_LABELS[r.fn] || r.fn)}</span></div>
+        <div>${r.regions.map(x => `<span class="tag">${esc(REGION_LABELS[x] || x)}</span>`).join("")}<span class="tag">${esc(SEN_LABELS[r.sen] || r.sen)}</span><span class="tag">${esc(r.spec || FN_LABELS[r.fn] || r.fn)}</span></div>
       </div>
       <div class="right">
         Posted ${ago(r.posted)}<br>
-        ${r.first_seen === today ? '<span class="new">New today</span>' : "First seen " + esc(r.first_seen)}
+        ${r.reposted ? `<span class="new">Reposted ${r.reposted === today ? "today" : esc(r.reposted)}</span><br>` : ""}
+        ${r.first_seen === today && !r.reposted ? '<span class="new">New today</span>' : r.first_seen === today ? "" : "First seen " + esc(r.first_seen)}
       </div>
     </article>`).join("") +
     (rows.length > shown ? `<button class="more" type="button" id="more">Show ${Math.min(PAGE, rows.length - shown)} more of ${(rows.length - shown).toLocaleString()} remaining</button>` : "");
@@ -225,6 +233,8 @@ fetch("jobs.json", { cache: "no-store" })
     if (d.seniorities) SEN_LABELS = d.seniorities;
     // Older data files (before every function was tracked) have no fn/sen on some roles
     for (const r of d.roles) { r.fn = r.fn || "other"; r.sen = r.sen || "ic"; }
+    const specs = [...new Set(d.roles.map(r => r.spec).filter(Boolean))].sort();
+    SPEC_LABELS = Object.fromEntries(specs.map(s => [s, s]));
     const segs = [...new Set(d.roles.map(r => r.segment).filter(Boolean))].sort();
     SEG_LABELS = Object.fromEntries(segs.map(s => [s, s]));
     document.getElementById("sub").textContent =
