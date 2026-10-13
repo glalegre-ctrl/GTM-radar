@@ -546,6 +546,37 @@ FUNCTIONS = [
                       r"procurement", r"sourcing", r"fulfillment", r"warehouse", r"technician",
                       r"coo", r"general manager")),
 ]
+# Marketing specialty (shown on the page and in alerts): first match wins
+MARKETING_SPECIALTIES = [
+    ("Marketing leadership", rx(r"cmo", r"chief marketing officer", r"(?:vp|vice president|head|svp|evp)(?:,| of)? marketing",
+                                r"marketing (?:leader|lead)$", r"general manager, marketing")),
+    ("Marketing Ops & Analytics", rx(r"marketing operations", r"marketing ops", r"mops", r"martech", r"marketing technology",
+                                     r"marketing automation", r"marketing analytics", r"marketing systems", r"marketing data",
+                                     r"campaign operations", r"marketing science", r"attribution")),
+    ("Product Marketing", rx(r"product marketing", r"pmm", r"solutions? marketing", r"technical marketing",
+                             r"industry marketing", r"competitive intelligence", r"market intelligence", r"go[- ]to[- ]market")),
+    ("Demand Gen & Growth", rx(r"demand gen(?:eration)?", r"growth", r"acquisition", r"performance marketing", r"paid",
+                               r"lifecycle", r"abm", r"account[- ]based", r"abx", r"campaigns?", r"pipeline", r"email marketing",
+                               r"revenue marketing", r"integrated marketing")),
+    ("Field, Events & Partner", rx(r"field marketing", r"events?", r"regional marketing", r"partner marketing",
+                                   r"channel marketing", r"alliance marketing", r"ecosystem marketing", r"sales enablement")),
+    ("Digital & Web", rx(r"digital", r"web(?:site)?", r"seo", r"aeo", r"geo", r"site experience", r"conversion")),
+    ("Brand & Creative", rx(r"brand", r"creative", r"design", r"art director", r"video", r"production")),
+    ("Comms & PR", rx(r"communications?", r"comms", r"public relations", r"pr", r"analyst relations", r"media relations",
+                      r"social", r"influencer", r"spokesperson")),
+    ("Content", rx(r"content", r"editorial", r"copy(?:writer)?", r"storytell\w*", r"narrative", r"writer")),
+    ("Customer & Community", rx(r"customer marketing", r"advocacy", r"community", r"references?", r"developer relations",
+                                r"devrel", r"evangelis[tm]")),
+]
+
+
+def marketing_specialty(title):
+    for name, pat in MARKETING_SPECIALTIES:
+        if pat.search(title):
+            return name
+    return "Marketing (general)"
+
+
 # Every title is still classified against all functions above (so "Sales Engineer" or
 # "Product Designer" can't slip in as marketing), but only these are kept.
 # Add a key from FUNCTIONS here to track another function.
@@ -725,6 +756,16 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
 
     status, roles, learned = [], [], 0
     today = now.date()
+    # Two companies can lead to the same job board (an acquisition like Moveworks ->
+    # ServiceNow, or sister brands like Juniper and Aruba -> HPE). List those roles once,
+    # under the company whose name best matches the board.
+    owner = {}
+    for c, ats, slug, data, err in results:
+        if ats and not err:
+            key = (ats, slug)
+            match = norm_name(c["name"])[:5] in slug.lower().replace("|", "")
+            if key not in owner or (match and not owner[key][1]):
+                owner[key] = (c["name"], match)
     for c, ats, slug, data, err in results:
         if err or not ats:
             if c["slug"]:
@@ -748,6 +789,12 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
                 c["notes"] = (MISS_NOTE.sub("", c["notes"]).strip() + f" | {how}; spot-check once").strip(" |")
             c["ats"], c["slug"] = ats, slug  # remember what worked
             learned += 1
+        if owner.get((ats, slug), (c["name"],))[0] != c["name"]:
+            other = owner[(ats, slug)][0]
+            status.append({"company": c["name"], "slug": slug, "ats": ats, "ok": True, "open_roles": 0,
+                           "source": c["source"], "guessed": False,
+                           "note": f"same job board as {other}; its roles are listed under {other}"})
+            continue
         all_jobs = list(NORMALIZERS[ats](c["name"], data))
         status.append({"company": c["name"], "slug": slug, "ats": ats, "ok": True,
                        "open_roles": len(all_jobs), "source": c["source"],
@@ -762,6 +809,8 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
             regions = classify_regions(j["locations"], j["remote_flag"])
             if not regions:
                 continue  # outside Bay Area / West Coast / US-remote
+            if fn == "marketing":
+                j["spec"] = marketing_specialty(j["title"])
             j.update(fn=fn, sen=sen, regions=sorted(regions),
                      segment=c["segment"], source=c["source"], ats=ats)
             for k in ("remote_flag", "dept"):
@@ -782,15 +831,51 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
         print(f"\n{ok}/{len(status)} companies have a readable job feed")
         return
 
-    # first_seen tracking so you can see what's new since your last look
-    seen = json.loads(STATE.read_text()) if STATE.exists() else {}
+    # What's new: first_seen per posting ID, plus repost detection per company + title.
+    # A repost is a role we saw before that comes back under a new ID (closed and
+    # reopened), or whose posting date jumps forward well after we first saw it.
+    raw = json.loads(STATE.read_text()) if STATE.exists() else {}
+    if raw and "ids" not in raw:          # older format was {id: date}
+        raw = {"ids": raw}
+    ids, titles, reposts = raw.get("ids", {}), raw.get("titles", {}), raw.get("reposts", {})
     today = now.date().isoformat()
+
+    def tkey(r):
+        return r["company"].lower() + "|" + re.sub(r"[^a-z0-9]+", " ", r["title"].lower()).strip()
+
+    def days_between(a, b):
+        return (datetime.fromisoformat(b).date() - datetime.fromisoformat(a).date()).days
+
+    live_now = {r["id"] for r in roles}
     for r in roles:
-        r["first_seen"] = seen.setdefault(r["id"], today)
-    live_ids = {r["id"] for r in roles}
-    seen = {k: v for k, v in seen.items() if k in live_ids}  # drop closed roles
+        k = tkey(r)
+        t = titles.get(k)
+        is_new_id = r["id"] not in ids
+        r["first_seen"] = ids.setdefault(r["id"], today)
+        posted = (r.get("posted") or "")[:10]
+        if t and r["id"] not in reposts:
+            if is_new_id and t.get("ids") and not any(i in live_now for i in t["ids"]):
+                reposts[r["id"]] = today       # earlier posting closed; same title back under a new ID
+            elif not is_new_id and posted and posted > r["first_seen"] and \
+                    days_between(r["first_seen"], posted) >= 7:
+                reposts[r["id"]] = posted      # same posting, date refreshed a week+ after we first saw it
+        if not t:
+            t = titles[k] = {"first_seen": today, "ids": []}
+        if r["id"] not in t["ids"]:
+            t["ids"] = (t["ids"] + [r["id"]])[-5:]
+        if r["id"] in reposts:
+            r["reposted"] = reposts[r["id"]]
+
+    # A title keeps its history for 180 days after it disappears, so a later repost is still recognised.
+    for r in roles:
+        titles[tkey(r)]["last_seen"] = today
+    cutoff = (now.date() - timedelta(days=180)).isoformat()
+    titles = {k: v for k, v in titles.items() if v.get("last_seen", today) >= cutoff}
+    ids = {k: v for k, v in ids.items() if k in live_now}
+    reposts = {k: v for k, v in reposts.items() if k in live_now}
     STATE.parent.mkdir(parents=True, exist_ok=True)
-    STATE.write_text(json.dumps(seen, indent=0, sort_keys=True))
+    STATE.write_text(json.dumps({"ids": ids, "titles": titles, "reposts": reposts},
+                                separators=(",", ":"), sort_keys=True))
 
     roles.sort(key=lambda r: r.get("posted") or "", reverse=True)
     OUT.parent.mkdir(parents=True, exist_ok=True)
