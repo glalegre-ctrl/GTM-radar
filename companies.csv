@@ -1,0 +1,260 @@
+name,careers_url,ats,slug,segment,source,notes
+Abnormal Security,,,,cyber,broad,
+Arctic Wolf,,,,cyber,broad,
+Armis,,,,cyber,broad,
+Axonius,,,,cyber,broad,
+BigID,,,,cyber,broad,
+Chainguard,,,,cyber,broad,
+Cribl,,,,cyber,broad,
+Cyera,,,,cyber,broad,
+Drata,,,,cyber,broad,
+Vanta,,,,cyber,broad,
+Netskope,https://www.netskope.com/careers,,,cyber,tracker,priority Medium; Cybersecurity
+Island,,,,cyber,broad,
+Material Security,,,,cyber,broad,
+Orca Security,,,,cyber,broad,
+Persona,,,,cyber,broad,
+Semgrep,,,,cyber,broad,
+Snyk,,,,cyber,broad,
+Socket,,,,cyber,broad,
+Tines,,,,cyber,broad,
+Torq,,,,cyber,broad,
+Wiz,,,,cyber,broad,
+1Password,,,,cyber,broad,
+Huntress,,,,cyber,broad,
+Expel,,,,cyber,broad,
+Coalition,,,,cyber,broad,
+At-Bay,,,,cyber,broad,
+Teleport,,,,cyber,broad,
+Tailscale,,,,cyber,broad,
+Aembit,,,,cyber,broad,
+Astrix Security,,,,cyber,broad,
+Sublime Security,,,,cyber,broad,
+Push Security,,,,cyber,broad,
+Zip Security,,,,cyber,broad,
+Cyberhaven,,,,cyber,broad,
+Varonis,,,,cyber,broad,
+Illumio,https://www.illumio.com/careers,,,cyber,tracker,priority Medium; Cybersecurity
+Exabeam,,,,cyber,broad,
+Armorcode,,,,cyber,broad,
+Endor Labs,,,,cyber,broad,
+Aikido Security,,,,cyber,broad,
+Dropzone AI,,,,cyber,broad,
+Prophet Security,,,,cyber,broad,
+Chainalysis,,,,cyber,broad,
+Sumo Logic,,,,cyber,broad,
+Netwrix,,,,cyber,broad,
+Proofpoint,,,,cyber,broad,
+Okta,https://www.okta.com/careers/,,,cyber,tracker,priority Medium; Identity/access management
+Zscaler,,,,cyber,broad,
+CrowdStrike (major CA hub),https://www.crowdstrike.com/careers/,,,cyber,tracker,"priority Medium; Cybersecurity (official HQ Austin, TX)"
+Palo Alto Networks,https://jobs.paloaltonetworks.com,,,cyber,tracker,priority Medium; Cybersecurity
+Fortinet,https://www.fortinet.com/corporate/about-us/careers,,,cyber,tracker,priority Medium; Cybersecurity
+SentinelOne,https://www.sentinelone.com/careers/,,,cyber,tracker,priority Medium; Cybersecurity
+Rubrik,https://www.rubrik.com/company/careers,,,cyber,tracker,priority Medium; Enterprise data security
+Cohesity,https://www.cohesity.com/careers/,,,cyber,tracker,priority Medium; Data security/management
+Cloudflare,https://www.cloudflare.com/careers/,,,cyber,tracker,priority Medium; Internet infrastructure/security
+Anthropic,https://www.anthropic.com/careers,,,ai,tracker,priority Medium; Enterprise/API AI
+OpenAI,https://openai.com/careers,,,ai,tracker,"priority Medium; AI (enterprise API + consumer, mixed)"
+Glean,,,,ai,broad,
+Harvey,,,,ai,broad,
+Sierra,,,,ai,broad,
+Decagon,,,,ai,broad,
+Writer,,,,ai,broad,
+Jasper,,,,ai,broad,
+Perplexity,,,,ai,broad,
+Scale AI,https://scale.com/careers,,,ai,tracker,priority Medium; Enterprise AI data
+Anyscale,,,,ai,broad,
+Together AI,,,,ai,broad,
+Fireworks AI,,,,ai,broad,
+Baseten,,,,ai,broad,
+Modal,,,,ai,broad,
+Pinecone,,,,ai,broad,
+Weaviate,,,,ai,broad,
+LangChain,,,,ai,broad,
+Hebbia,,,,ai,broad,
+Cresta,,,,ai,broad,
+Moveworks,https://www.moveworks.com/careers,,,ai,tracker,priority Medium; Enterprise AI for IT/HR support
+Synthesia,,,,ai,broad,
+ElevenLabs,,,,ai,broad,
+Runway,,,,ai,broad,
+Character AI,,,,ai,broad,
+Abridge,,,,ai,broad,
+Hippocratic AI,,,,ai,broad,
+Mercor,,,,ai,broad,
+Cognition,,,,ai,broad,
+Replit,,,,ai,broad,
+Cursor,,,,ai,broad,
+Windsurf,,,,ai,broad,
+Lovable,,,,ai,broad,
+Notion,,,,ai,broad,
+Databricks,https://www.databricks.com/company/careers,,,ai,tracker,priority Medium; Data/AI platform
+Snowflake,,,,data-infra,broad,
+ClickHouse,,,,data-infra,broad,
+MotherDuck,,,,data-infra,broad,
+dbt Labs,,,,data-infra,broad,
+Fivetran,,,,data-infra,broad,
+Airbyte,,,,data-infra,broad,
+Hightouch,,,,data-infra,broad,
+Census,,,,data-infra,broad,
+Confluent,https://www.confluent.io/careers/,,,data-infra,tracker,priority Medium; Data streaming platform
+Starburst,,,,data-infra,broad,
+Cockroach Labs,,,,data-infra,broad,
+Neon,,,,data-infra,broad,
+Supabase,,,,data-infra,broad,
+Temporal,,,,data-infra,broad,
+Redpanda,,,,data-infra,broad,
+Monte Carlo,,,,data-infra,broad,
+Atlan,,,,data-infra,broad,
+Sigma Computing,,,,data-infra,broad,
+Hex,,,,data-infra,broad,
+Omni Analytics,,,,data-infra,broad,
+Vercel,,,,devtools,broad,
+Netlify,,,,devtools,broad,
+Postman,,,,devtools,broad,
+Grafana Labs,,,,devtools,broad,
+Sentry,,,,devtools,broad,
+PagerDuty,https://www.pagerduty.com/careers/,,,devtools,tracker,priority Medium; Incident management
+LaunchDarkly,,,,devtools,broad,
+Harness,,,,devtools,broad,
+CircleCI,,,,devtools,broad,
+Retool,,,,devtools,broad,
+GitLab,https://about.gitlab.com/jobs/,,,devtools,tracker,priority Medium; Developer tools/DevOps
+HashiCorp (IBM),https://www.hashicorp.com/careers,,,semis-infra,tracker,priority Medium; Infrastructure software
+Docker,,,,devtools,broad,
+Chronosphere,,,,devtools,broad,
+Honeycomb,,,,devtools,broad,
+incident.io,,,,devtools,broad,
+Linear,,,,devtools,broad,
+Graphite,,,,devtools,broad,
+Warp,,,,devtools,broad,
+Clay,,,,gtm-tech,broad,
+Gong,https://www.gong.io/careers/,,,gtm-tech,tracker,priority Medium; Revenue intelligence
+Clari,,,,gtm-tech,broad,
+Outreach,,,,gtm-tech,broad,
+Highspot,,,,gtm-tech,broad,
+Seismic,,,,gtm-tech,broad,
+6sense,https://6sense.com/careers/,,,b2b-saas,tracker,priority Medium; B2B predictive intelligence
+Demandbase,https://www.demandbase.com/careers/,,,gtm-tech,tracker,priority Medium; Account-based marketing
+Mutiny,,,,gtm-tech,broad,
+Common Room,,,,gtm-tech,broad,
+Amplitude,https://amplitude.com/careers,,,data-infra,tracker,priority Medium; Product analytics
+Mixpanel,,,,gtm-tech,broad,
+Braze,,,,gtm-tech,broad,
+Iterable,,,,gtm-tech,broad,
+Customer.io,,,,gtm-tech,broad,
+Contentful,,,,gtm-tech,broad,
+Sanity,,,,gtm-tech,broad,
+Webflow,,,,gtm-tech,broad,
+Framer,,,,gtm-tech,broad,
+Sprinklr,,,,gtm-tech,broad,
+Qualified,,,,gtm-tech,broad,
+Apollo.io,,,,gtm-tech,broad,
+ZoomInfo,,,,gtm-tech,broad,
+Bombora,,,,gtm-tech,broad,
+Pocus,,,,gtm-tech,broad,
+Unify,,,,gtm-tech,broad,
+Default,,,,gtm-tech,broad,
+Chili Piper,,,,gtm-tech,broad,
+Navattic,,,,gtm-tech,broad,
+Storylane,,,,gtm-tech,broad,
+Samsara,https://boards.greenhouse.io/samsara,greenhouse,samsara,b2b-saas,tracker,verified
+Verkada,https://www.verkada.com/careers,,,cyber,tracker,priority Medium; Physical security/enterprise IoT
+Figma,,,,b2b-saas,broad,
+Airtable,,,,b2b-saas,broad,
+Asana,,,,b2b-saas,broad,
+Miro,,,,b2b-saas,broad,
+Calendly,,,,b2b-saas,broad,
+Zapier,,,,b2b-saas,broad,
+Workato,,,,b2b-saas,broad,
+Celonis,,,,b2b-saas,broad,
+Rippling,https://www.rippling.com/careers,,,b2b-saas,tracker,priority Medium; HR/IT platform
+Deel,,,,b2b-saas,broad,
+Gusto,https://gusto.com/careers,,,fintech,tracker,priority Medium; Payroll/HR for SMB
+Brex,,,,b2b-saas,broad,
+Mercury,,,,b2b-saas,broad,
+Plaid,,,,b2b-saas,broad,
+Stripe,https://stripe.com/jobs,,,semis-infra,tracker,priority Medium; Payments infrastructure
+Ramp,https://jobs.ashbyhq.com/ramp,ashby,ramp,b2b-saas,broad,verified
+Box,https://www.box.com/careers,,,b2b-saas,tracker,priority Medium; Content management/collaboration
+Zoom Communications,https://careers.zoom.us,,,b2b-saas,tracker,priority Medium; Enterprise communications
+Atlassian,https://www.atlassian.com/company/careers,,,devtools,tracker,priority Medium; Dev/collaboration tools
+ServiceTitan,,,,b2b-saas,broad,
+Benchling,,,,b2b-saas,broad,
+Checkr,,,,b2b-saas,broad,
+Lattice,,,,b2b-saas,broad,
+Navan,,,,b2b-saas,broad,
+Front,,,,b2b-saas,broad,
+Intercom,,,,b2b-saas,broad,
+Zendesk,https://www.zendesk.com/careers/,,,gtm-tech,tracker,priority Medium; Customer service software
+Canva,,,,b2b-saas,broad,
+DocuSign,https://careers.docusign.com,,,b2b-saas,tracker,priority Medium; E-signature/agreements
+Dropbox,,,,b2b-saas,broad,
+Nutanix,https://www.nutanix.com/careers,,,semis-infra,tracker,priority Medium; Cloud infrastructure
+Pure Storage,https://www.purestorage.com/company/careers.html,,,data-infra,tracker,priority Medium; Enterprise storage
+Twilio,https://www.twilio.com/en-us/company/jobs,,,b2b-saas,tracker,priority Medium; Communications APIs
+Ironclad,,,,b2b-saas,broad,
+Carta,https://carta.com/careers/,,,fintech,tracker,priority Medium; Cap table/equity management
+Check Point Software (Americas HQ),https://careers.checkpoint.com,,,cyber,tracker,priority Medium; Cybersecurity
+Oracle (Redwood Shores hub),https://www.oracle.com/careers/,,,b2b-saas,tracker,priority Medium; Cloud/enterprise software
+Informatica,https://www.informatica.com/about-us/careers.html,,,data-infra,tracker,priority Medium; Enterprise data management
+Guidewire Software,https://www.guidewire.com/company/careers,,,fintech,tracker,priority Medium; P&C insurance platform
+Visa Inc.,https://corporate.visa.com/en/jobs.html,,,semis-infra,tracker,priority Medium; Global payments network
+Coupa Software,https://www.coupa.com/careers,,,fintech,tracker,priority Medium; B2B spend management
+TIBCO Software,https://www.tibco.com/careers,,,data-infra,tracker,priority Medium; Enterprise data/analytics
+Broadcom / VMware,https://www.broadcom.com/careers,,,semis-infra,tracker,priority Medium; Semiconductors/enterprise infrastructure
+ServiceNow,https://careers.servicenow.com,,,b2b-saas,tracker,priority Medium; Enterprise workflow SaaS
+Synopsys,https://www.synopsys.com/careers.html,,,semis-infra,tracker,priority Medium; Chip design software (EDA)
+Juniper Networks (HPE),https://careers.juniper.net,,,semis-infra,tracker,priority Medium; Enterprise networking
+NetApp,https://jobs.netapp.com,,,data-infra,tracker,priority Medium; Enterprise data storage
+Cisco Systems,https://jobs.cisco.com,,,semis-infra,tracker,priority Medium; Networking/enterprise infrastructure
+Adobe (Experience/Document Cloud),https://www.adobe.com/careers.html,,,b2b-saas,tracker,priority Medium; Enterprise software
+Cloudera,https://www.cloudera.com/about/careers.html,,,data-infra,tracker,priority Medium; Enterprise data platform
+Splunk (part of Cisco),https://www.splunk.com/en_us/careers.html,,,cyber,tracker,priority Medium; Data/security analytics
+Salesforce,https://www.salesforce.com/company/careers/,,,gtm-tech,tracker,priority Medium; CRM
+Workday,https://www.workday.com/en-us/company/careers.html,,,fintech,tracker,priority Medium; HR/Financials SaaS
+Veeva Systems,https://www.veeva.com/careers/,,,b2b-saas,tracker,priority Medium; Life sciences cloud software
+Equinix,https://careers.equinix.com,,,data-infra,tracker,priority Medium; Data centers/colocation
+C3.ai,https://c3.ai/careers/,,,ai,tracker,priority Medium; Enterprise AI software
+Freshworks,https://www.freshworks.com/company/careers/,,,gtm-tech,tracker,priority Medium; CRM/customer engagement SaaS
+Franklin Templeton,https://www.franklintempleton.com/about-us/careers,,,fintech,tracker,priority Medium; Asset management (institutional + retail)
+SurveyMonkey (Momentive),https://www.momentive.ai/en/careers/,,,gtm-tech,tracker,priority Medium; Survey/feedback platform
+RingCentral,https://www.ringcentral.com/careers.html,,,b2b-saas,tracker,priority Medium; Cloud communications
+Genesys,https://www.genesys.com/careers,,,b2b-saas,tracker,priority Medium; Contact center/CX software
+Elastic,https://www.elastic.co/careers,,,data-infra,tracker,priority Medium; Search/observability
+Intuit,https://www.intuit.com/careers/,,,fintech,tracker,priority Medium; Business/financial software (mixed B2B/consumer)
+Addepar,https://addepar.com/careers,,,fintech,tracker,priority Medium; Wealth management software
+Egnyte,https://www.egnyte.com/careers,,,b2b-saas,tracker,priority Medium; Content governance/file sharing
+Redis,https://redis.io/careers/,,,data-infra,tracker,priority Medium; Database
+ThoughtSpot,https://www.thoughtspot.com/careers,,,data-infra,tracker,priority Medium; Enterprise analytics
+LinkedIn,https://careers.linkedin.com,,,semis-infra,tracker,priority Medium; Professional network/talent solutions
+JFrog,https://jfrog.com/careers/,,,devtools,tracker,priority Medium; DevOps platform
+Druva,https://www.druva.com/careers,,,data-infra,tracker,priority Medium; Data protection/backup
+Trellix,https://www.trellix.com/about/careers/,,,cyber,tracker,priority Medium; Cybersecurity
+Infoblox,https://www.infoblox.com/careers/,,,cyber,tracker,priority Medium; Networking/DNS security
+Extreme Networks,https://www.extremenetworks.com/careers,,,semis-infra,tracker,priority Medium; Enterprise networking
+A10 Networks,https://www.a10networks.com/company/careers/,,,cyber,tracker,priority Medium; Networking/security
+Arista Networks,https://www.arista.com/en/company/careers,,,semis-infra,tracker,priority Medium; Enterprise networking
+Marvell Technology,https://www.marvell.com/company/careers.html,,,semis-infra,tracker,priority Medium; Semiconductors
+Cadence Design Systems,https://www.cadence.com/en_US/home/company/careers.html,,,semis-infra,tracker,priority Medium; Chip design software (EDA)
+Applied Materials,https://www.appliedmaterials.com/us/en/careers.html,,,semis-infra,tracker,priority Medium; Semiconductor equipment
+KLA Corporation,https://www.kla.com/careers,,,semis-infra,tracker,priority Medium; Semiconductor equipment
+Lam Research,https://www.lamresearch.com/careers/,,,semis-infra,tracker,priority Medium; Semiconductor equipment
+Nvidia,https://www.nvidia.com/en-us/about-nvidia/careers/,,,ai,tracker,priority Medium; AI/data center chips (mixed w/ gaming)
+Intel,https://jobs.intel.com,,,semis-infra,tracker,priority Medium; Semiconductors (mixed B2B/consumer)
+Western Digital,https://www.westerndigital.com/careers,,,data-infra,tracker,priority Medium; Data storage (mixed enterprise/consumer)
+Couchbase,https://www.couchbase.com/careers/,,,data-infra,tracker,priority Medium; Database
+Veritas Technologies,https://www.veritas.com/company/careers,,,data-infra,tracker,priority Medium; Data backup/management
+Automation Anywhere,https://www.automationanywhere.com/company/careers,,,b2b-saas,tracker,priority Medium; RPA/automation
+Bill.com,https://www.bill.com/careers,,,fintech,tracker,priority Medium; B2B payments/AP automation
+Barracuda Networks,https://www.barracuda.com/company/careers,,,cyber,tracker,priority Medium; Cybersecurity
+Aruba Networks (HPE),https://www.arubanetworks.com/careers/,,,semis-infra,tracker,priority Medium; Enterprise networking
+8x8 Inc.,https://www.8x8.com/careers,,,b2b-saas,tracker,priority Medium; Cloud communications
+GitHub (Microsoft),https://github.com/about/careers,,,devtools,tracker,priority Medium; Developer tools
+New Relic,https://newrelic.com/about/careers,,,data-infra,tracker,priority Medium; Observability
+Medallia,https://www.medallia.com/careers/,,,gtm-tech,tracker,priority Medium; Experience management
+Anaplan,https://www.anaplan.com/careers/,,,b2b-saas,tracker,priority Medium; Planning software
+LiveRamp,https://liveramp.com/careers/,,,data-infra,tracker,priority Medium; Data connectivity
+Flexport,https://www.flexport.com/careers/,,,b2b-saas,tracker,priority Medium; Freight/logistics platform
+Block Inc.,https://block.xyz/careers,,,fintech,tracker,priority Medium; Merchant/B2B payments + consumer (mixed)
+Doximity,https://workat.doximity.com,,,semis-infra,tracker,priority Medium; Physician network (B2B2C healthcare)
