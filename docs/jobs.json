@@ -1,0 +1,4726 @@
+{
+ "generated": "2026-10-13T00:49:01+00:00",
+ "companies_tracked": 259,
+ "companies_ok": 169,
+ "status": [
+  {
+   "company": "Abnormal Security",
+   "slug": "abnormalsecurity",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 91,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Arctic Wolf",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Armis",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Axonius",
+   "slug": "axonius",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 24,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "BigID",
+   "slug": "bigid",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 6,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Chainguard",
+   "slug": "chainguard",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 76,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Cribl",
+   "slug": "cribl",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 69,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Cyera",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Drata",
+   "slug": "drata",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 33,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Vanta",
+   "slug": "vanta",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 83,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Netskope",
+   "slug": "netskope",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 142,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Island",
+   "slug": "island",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 23,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Material Security",
+   "slug": "materialsecurity",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 2,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Orca Security",
+   "slug": "orcasecurity",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 11,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Persona",
+   "slug": "persona",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 13,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Semgrep",
+   "slug": "semgrep",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 12,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Snyk",
+   "slug": "snyk",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 22,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Socket",
+   "slug": "socket",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 1,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Tines",
+   "slug": "tines",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 28,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Torq",
+   "slug": "torq",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 25,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Wiz",
+   "slug": "wiz",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "1Password",
+   "slug": "1password",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 74,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Huntress",
+   "slug": "huntress",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 36,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Expel",
+   "slug": "expel",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 8,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Coalition",
+   "slug": "coalition",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 41,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "At-Bay",
+   "slug": "atbay",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Teleport",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Tailscale",
+   "slug": "tailscale",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 63,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Aembit",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Astrix Security",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Sublime Security",
+   "slug": "sublime-security",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Push Security",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Zip Security",
+   "slug": "zip",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 121,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Cyberhaven",
+   "slug": "cyberhaven",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 28,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Varonis",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Illumio",
+   "slug": "illumio",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 63,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Exabeam",
+   "slug": "exabeam",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Armorcode",
+   "slug": "armorcode",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 3,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Endor Labs",
+   "slug": "endorlabs",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 33,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Aikido Security",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Dropzone AI",
+   "slug": "dropzoneai",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 10,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Prophet Security",
+   "slug": "prophet-security",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 6,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Chainalysis",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Sumo Logic",
+   "slug": "sumologic",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 9,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Netwrix",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Proofpoint",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Okta",
+   "slug": "okta",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 380,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Zscaler",
+   "slug": "zscaler",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 375,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "CrowdStrike (major CA hub)",
+   "slug": "crowdstrike|wd5|crowdstrikecareers",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 271,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Palo Alto Networks",
+   "slug": "paloaltonetworks|wd5|panwexternalcareers",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 452,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Fortinet",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "SentinelOne",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Rubrik",
+   "slug": "rubrik",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 131,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Cohesity",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Cloudflare",
+   "slug": "cloudflare",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 435,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Anthropic",
+   "slug": "anthropic",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 646,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "OpenAI",
+   "slug": "openai",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 808,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Glean",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Harvey",
+   "slug": "harvey",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 349,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Sierra",
+   "slug": "sierra",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 190,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Decagon",
+   "slug": "decagon",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 141,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Writer",
+   "slug": "writer",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 50,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Jasper",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Perplexity",
+   "slug": "perplexity",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 134,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Scale AI",
+   "slug": "scaleai",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 184,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Anyscale",
+   "slug": "anyscale",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 1,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Together AI",
+   "slug": "togetherai",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 80,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Fireworks AI",
+   "slug": "fireworks",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 84,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Baseten",
+   "slug": "baseten",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 108,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Modal",
+   "slug": "modal",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 41,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Pinecone",
+   "slug": "pinecone",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 5,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Weaviate",
+   "slug": "weaviate",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 3,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "LangChain",
+   "slug": "langchain",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 101,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Hebbia",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Cresta",
+   "slug": "cresta",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 86,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Moveworks",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Synthesia",
+   "slug": "synthesia",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 46,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "ElevenLabs",
+   "slug": "elevenlabs",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 134,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Runway",
+   "slug": "runway",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 3,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Character AI",
+   "slug": "character",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 13,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Abridge",
+   "slug": "abridge",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 46,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Hippocratic AI",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Mercor",
+   "slug": "mercor",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 111,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Cognition",
+   "slug": "cognition",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 102,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Replit",
+   "slug": "replit",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 69,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Cursor",
+   "slug": "cursor",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 135,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Windsurf",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Lovable",
+   "slug": "lovable",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 61,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Notion",
+   "slug": "notion",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 130,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Databricks",
+   "slug": "databricks",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 896,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Snowflake",
+   "slug": "snowflake",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 360,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "ClickHouse",
+   "slug": "clickhouse",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 193,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "MotherDuck",
+   "slug": "motherduck",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 3,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "dbt Labs",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Fivetran",
+   "slug": "fivetran",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 188,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Airbyte",
+   "slug": "airbyte",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 12,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Hightouch",
+   "slug": "hightouch",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 1,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Census",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Confluent",
+   "slug": "confluent",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Starburst",
+   "slug": "starburst",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 32,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Cockroach Labs",
+   "slug": "cockroachlabs",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 19,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Neon",
+   "slug": "neon",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 13,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Supabase",
+   "slug": "supabase",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 52,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Temporal",
+   "slug": "temporal",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 68,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Redpanda",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Monte Carlo",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Atlan",
+   "slug": "atlan",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 7,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Sigma Computing",
+   "slug": "sigmacomputing",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 73,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Hex",
+   "slug": "hex",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 40,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Omni Analytics",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Vercel",
+   "slug": "vercel",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 89,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Netlify",
+   "slug": "netlify",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 5,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Postman",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Grafana Labs",
+   "slug": "grafanalabs",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 104,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Sentry",
+   "slug": "sentry",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 46,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "PagerDuty",
+   "slug": "pagerduty",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 51,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "LaunchDarkly",
+   "slug": "launchdarkly",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 57,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Harness",
+   "slug": "harnessinc",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 66,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "CircleCI",
+   "slug": "circleci",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 13,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Retool",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "GitLab",
+   "slug": "gitlab",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 221,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "HashiCorp (IBM)",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Docker",
+   "slug": "docker",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 64,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Chronosphere",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Honeycomb",
+   "slug": "honeycomb",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 17,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "incident.io",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Linear",
+   "slug": "linear",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 31,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Graphite",
+   "slug": "graphite",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 7,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Warp",
+   "slug": "warp",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 4,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Clay",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Gong",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Clari",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Outreach",
+   "slug": "outreach",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 25,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Highspot",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Seismic",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "6sense",
+   "slug": "6sense",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 29,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Demandbase",
+   "slug": "demandbase",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 14,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Mutiny",
+   "slug": "mutiny",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 9,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Common Room",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Amplitude",
+   "slug": "amplitude",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 39,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Mixpanel",
+   "slug": "mixpanel",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 55,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Braze",
+   "slug": "braze",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 329,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Iterable",
+   "slug": "iterable",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Customer.io",
+   "slug": "customerio",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 30,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Contentful",
+   "slug": "contentful",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 19,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Sanity",
+   "slug": "sanity",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 36,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Webflow",
+   "slug": "webflow",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 23,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Framer",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Sprinklr",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Qualified",
+   "slug": "qualified",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Apollo.io",
+   "slug": "apolloio",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 54,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "ZoomInfo",
+   "slug": "zoominfo",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 102,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Bombora",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Pocus",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Unify",
+   "slug": "unify",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 9,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Default",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Chili Piper",
+   "slug": "chilipiper",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 2,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Navattic",
+   "slug": "navattic",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Storylane",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Samsara",
+   "slug": "samsara",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 238,
+   "source": "tracker",
+   "guessed": false
+  },
+  {
+   "company": "Verkada",
+   "slug": "verkada",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 308,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Figma",
+   "slug": "figma",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 151,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Airtable",
+   "slug": "airtable",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 3,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Asana",
+   "slug": "asana",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 102,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Miro",
+   "slug": "miro",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 24,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Calendly",
+   "slug": "calendly",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 9,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Zapier",
+   "slug": "zapier",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 11,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Workato",
+   "slug": "workato",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 70,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Celonis",
+   "slug": "celonis",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 212,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Rippling",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Deel",
+   "slug": "deel",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Gusto",
+   "slug": "gusto",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 99,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Brex",
+   "slug": "brex",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 273,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Mercury",
+   "slug": "mercury",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 70,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Plaid",
+   "slug": "plaid",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 121,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Stripe",
+   "slug": "stripe",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 721,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Ramp",
+   "slug": "ramp",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 164,
+   "source": "broad",
+   "guessed": false
+  },
+  {
+   "company": "Box",
+   "slug": "boxinc",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 128,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Zoom Communications",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Atlassian",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "ServiceTitan",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Benchling",
+   "slug": "benchling",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 59,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Checkr",
+   "slug": "checkr",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 45,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Lattice",
+   "slug": "lattice",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 13,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Navan",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Front",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Intercom",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "Zendesk",
+   "slug": "zendesk|wd1|zendesk",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 141,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Canva",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "broad"
+  },
+  {
+   "company": "DocuSign",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Dropbox",
+   "slug": "dropbox",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 32,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Nutanix",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Pure Storage",
+   "slug": "purestorage",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Twilio",
+   "slug": "twilio",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 146,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Ironclad",
+   "slug": "ironcladhq",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 34,
+   "source": "broad",
+   "guessed": true
+  },
+  {
+   "company": "Carta",
+   "slug": "carta",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 72,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Check Point Software (Americas HQ)",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Oracle (Redwood Shores hub)",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Informatica",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Guidewire Software",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Visa Inc.",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Coupa Software",
+   "slug": "coupa",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 36,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "TIBCO Software",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Broadcom / VMware",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "ServiceNow",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Synopsys",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Juniper Networks (HPE)",
+   "slug": "hpe|wd5|Jobsathpe",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 614,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "NetApp",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Cisco Systems",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Adobe (Experience/Document Cloud)",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Cloudera",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Splunk (part of Cisco)",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Salesforce",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Workday",
+   "slug": "workday|wd5|Workday",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 198,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Veeva Systems",
+   "slug": "veeva",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 937,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Equinix",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "C3.ai",
+   "slug": "c3ascend",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 3,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Freshworks",
+   "slug": "Freshworks",
+   "ats": "smartrecruiters",
+   "ok": true,
+   "open_roles": 122,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Franklin Templeton",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "SurveyMonkey (Momentive)",
+   "slug": "surveymonkey",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 0,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "RingCentral",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Genesys",
+   "slug": "genesys|wd1|Genesys",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 186,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Elastic",
+   "slug": "elastic",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 403,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Intuit",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Addepar",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Egnyte",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Redis",
+   "slug": "redis",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 31,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "ThoughtSpot",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "LinkedIn",
+   "slug": "linkedin",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 23,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "JFrog",
+   "slug": "jfrog",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 61,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Druva",
+   "slug": "druva",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 34,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Trellix",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Infoblox",
+   "slug": "infoblox",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Extreme Networks",
+   "slug": "extremenetworks",
+   "ats": "lever",
+   "ok": true,
+   "open_roles": 140,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "A10 Networks",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Arista Networks",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Marvell Technology",
+   "slug": "marvell|wd1|MarvellCareers",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 139,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Cadence Design Systems",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Applied Materials",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "KLA Corporation",
+   "slug": "kla|wd1|Search",
+   "ats": "workday",
+   "ok": true,
+   "open_roles": 496,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Lam Research",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Nvidia",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Intel",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Western Digital",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Couchbase",
+   "slug": "couchbaseinc",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 15,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Veritas Technologies",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Automation Anywhere",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Bill.com",
+   "slug": "billcom",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 41,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Barracuda Networks",
+   "slug": "barracuda-networks",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 0,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Aruba Networks (HPE)",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "8x8 Inc.",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "GitHub (Microsoft)",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "New Relic",
+   "slug": "newrelic",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 54,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Medallia",
+   "slug": "",
+   "ok": false,
+   "note": "no public board found; add the careers URL",
+   "source": "tracker"
+  },
+  {
+   "company": "Anaplan",
+   "slug": "anaplan",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 133,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "LiveRamp",
+   "slug": "liveramp-inc",
+   "ats": "ashby",
+   "ok": true,
+   "open_roles": 55,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Flexport",
+   "slug": "flexport",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 208,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Block Inc.",
+   "slug": "block",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 231,
+   "source": "tracker",
+   "guessed": true
+  },
+  {
+   "company": "Doximity",
+   "slug": "doximity",
+   "ats": "greenhouse",
+   "ok": true,
+   "open_roles": 15,
+   "source": "tracker",
+   "guessed": true
+  }
+ ],
+ "roles": [
+  {
+   "company": "Workday",
+   "title": "Revenue Operations Director, Global Customer Success",
+   "locations": [
+    "USA, IL, Chicago",
+    "USA, NY, New York City",
+    "USA, UT, Salt Lake City",
+    "USA, GA, Atlanta",
+    "USA, CO, Boulder",
+    "USA, CA, Pleasanton"
+   ],
+   "dept": "",
+   "posted": "2026-10-13T00:50:22+00:00",
+   "url": "https://workday.wd5.myworkdayjobs.com/Workday/job/USA-IL-Chicago/Revenue-Operations-Director--Global-Customer-Success_JR-0110682",
+   "id": "wd-JR-0110682",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "fintech",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Zendesk",
+   "title": "Chief of Staff, People Team",
+   "locations": [
+    "Austin, Texas, United States of America",
+    "Madison, Wisconsin, United States of America",
+    "San Francisco, California, United States of America"
+   ],
+   "dept": "",
+   "posted": "2026-10-10T00:50:22+00:00",
+   "url": "https://zendesk.wd1.myworkdayjobs.com/zendesk/job/Austin-Texas-United-States-of-America/Chief-of-Staff--People-Team_R35626",
+   "id": "wd-R35626",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Ironclad",
+   "title": "Product Marketing Director",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "Marketing & Strategy Marketing & Strategy",
+   "posted": "2026-10-09T21:17:06.066+00:00",
+   "url": "https://jobs.ashbyhq.com/ironcladhq/0bb18bf4-8a87-4fe2-9747-6974ff4972b4",
+   "id": "ab-0bb18bf4-8a87-4fe2-9747-6974ff4972b4",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Block Inc.",
+   "title": "Head of Social - Square",
+   "locations": [
+    "Bay Area, CA, United States of America"
+   ],
+   "dept": "Marketing Square Regular Marketing - JFG Square",
+   "posted": "2026-10-09T16:47:33-04:00",
+   "url": "http://block.xyz/careers/jobs/5445956008?gh_jid=5445956008",
+   "id": "gh-5445956008",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "fintech",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Zscaler",
+   "title": "Senior Director, CEO Communications",
+   "locations": [
+    "Remote - USA",
+    "San Jose, California, USA"
+   ],
+   "dept": "Fulltime Employee Global Marketing AMS",
+   "posted": "2026-10-09T14:07:54-04:00",
+   "url": "https://job-boards.greenhouse.io/zscaler/jobs/5196203007",
+   "id": "gh-5196203007",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Databricks",
+   "title": "Director, Technical Marketing",
+   "locations": [
+    "San Francisco, California"
+   ],
+   "dept": "Databricks, Inc.",
+   "posted": "2026-10-08T16:50:02-04:00",
+   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8860667002",
+   "id": "gh-8860667002",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Mercor",
+   "title": "Chief of Staff, Product",
+   "locations": [
+    "Mercor HQ, 181 Fremont Street"
+   ],
+   "dept": "Engineering Product",
+   "posted": "2026-10-07T17:38:59.539+00:00",
+   "url": "https://jobs.ashbyhq.com/mercor/51bd1cb4-b48c-4bef-978a-1ec34cc4ac54",
+   "id": "ab-51bd1cb4-b48c-4bef-978a-1ec34cc4ac54",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "ClickHouse",
+   "title": "Head of Story & Communications",
+   "locations": [
+    "United States",
+    "San Francisco"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-10-06T23:11:42.683+00:00",
+   "url": "https://jobs.ashbyhq.com/clickhouse/8053823a-c5f3-4c00-9aae-15439f08cf6d",
+   "id": "ab-8053823a-c5f3-4c00-9aae-15439f08cf6d",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Temporal",
+   "title": "Director, Product Marketing, Core Products",
+   "locations": [
+    "Seattle, Washington"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-10-06T23:02:59.114+00:00",
+   "url": "https://jobs.ashbyhq.com/temporal/512beff1-52d2-4f35-941a-825ba09b71f2",
+   "id": "ab-512beff1-52d2-4f35-941a-825ba09b71f2",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Temporal",
+   "title": "Director, Product Marketing, GTM",
+   "locations": [
+    "Seattle, Washington"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-10-06T23:01:15.503+00:00",
+   "url": "https://jobs.ashbyhq.com/temporal/200838d9-5ca0-4e6a-ac1d-ee0537853d5b",
+   "id": "ab-200838d9-5ca0-4e6a-ac1d-ee0537853d5b",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Snowflake",
+   "title": "Director, Product Marketing \u2014 Platform",
+   "locations": [
+    "US-CA-Menlo Park",
+    "US-WA-Bellevue",
+    "US-CA-Dublin"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-10-06T14:30:04.243+00:00",
+   "url": "https://jobs.ashbyhq.com/snowflake/9a88d51a-09ef-4960-9c4d-be211affcc1b",
+   "id": "ab-9a88d51a-09ef-4960-9c4d-be211affcc1b",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Sr. Director, Product Marketing Manager (SASE)",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-10-06T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Sr-Director--Product-Marketing-Manager--SASE-_JR-020350-1",
+   "id": "wd-JR-020350-1",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Dropbox",
+   "title": "Head of Field and Partner Marketing",
+   "locations": [
+    "Remote - US: All locations"
+   ],
+   "dept": "NAMER - Executive Recruiting  Regular Full Time Mid Field Marketer MGR7 Marketing",
+   "posted": "2026-10-05T16:42:19-04:00",
+   "url": "https://jobs.dropbox.com/listing/8038748?gh_jid=8038748",
+   "id": "gh-8038748",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Cloudflare",
+   "title": "Director, Growth Sales (AI & Digital Natives)",
+   "locations": [
+    "Distributed"
+   ],
+   "dept": "5100 - Mid Market",
+   "posted": "2026-10-05T11:18:12-04:00",
+   "url": "https://boards.greenhouse.io/cloudflare/jobs/8243255?gh_jid=8243255",
+   "id": "gh-8243255",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "KLA Corporation",
+   "title": "Director, Field Marketing (FaST division)",
+   "locations": [
+    "Milpitas, CA"
+   ],
+   "dept": "",
+   "posted": "2026-10-03T00:50:22+00:00",
+   "url": "https://kla.wd1.myworkdayjobs.com/Search/job/Milpitas-CA/Director--Field-Marketing--FaST-division-_2641768-1",
+   "id": "wd-2641768-1",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Perplexity",
+   "title": "Director of Events and Experiences",
+   "locations": [
+    "San Francisco",
+    "New York City"
+   ],
+   "dept": "Marketing & Communications Marketing & Communications",
+   "posted": "2026-10-02T23:50:34.577+00:00",
+   "url": "https://jobs.ashbyhq.com/perplexity/4d8f7e23-8c80-4bd8-ad27-3f40cf17197b",
+   "id": "ab-4d8f7e23-8c80-4bd8-ad27-3f40cf17197b",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Brex",
+   "title": "Director, Revenue Operations",
+   "locations": [
+    "Seattle, Washington, United States"
+   ],
+   "dept": "Sales",
+   "posted": "2026-10-02T18:40:09-04:00",
+   "url": "https://www.brex.com/careers/8865086002?gh_jid=8865086002",
+   "id": "gh-8865086002",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Anthropic",
+   "title": "Head of Recruiting, Communications, Brand, & Marketing",
+   "locations": [
+    "San Francisco, CA"
+   ],
+   "dept": "On-Site",
+   "posted": "2026-10-02T17:59:05-04:00",
+   "url": "https://job-boards.greenhouse.io/anthropic/jobs/5440891008",
+   "id": "gh-5440891008",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Stripe",
+   "title": "Head of Events, Works in Progress",
+   "locations": [
+    "SF, NYC"
+   ],
+   "dept": "",
+   "posted": "2026-10-02T15:50:02-04:00",
+   "url": "https://stripe.com/jobs/search?gh_jid=8180845",
+   "id": "gh-8180845",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Senior Director, Marketing (Integrated Programs)",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-10-02T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Senior-Director--Marketing--Integrated-Programs-_JR-022967",
+   "id": "wd-JR-022967",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Genesys",
+   "title": "Customer Success Content, Director",
+   "locations": [
+    "California, USA",
+    "Illinois, USA",
+    "Texas, USA",
+    "New York, USA",
+    "Washington, USA"
+   ],
+   "dept": "",
+   "posted": "2026-10-02T00:50:22+00:00",
+   "url": "https://genesys.wd1.myworkdayjobs.com/Genesys/job/California-USA/Customer-Success-Content--Director_JR112088-1",
+   "id": "wd-JR112088-1",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Replit",
+   "title": "Head of Marketing Strategy & Operations",
+   "locations": [
+    "Foster City, CA"
+   ],
+   "dept": "GTM Marketing",
+   "posted": "2026-10-01T17:44:18.975+00:00",
+   "url": "https://jobs.ashbyhq.com/replit/9394684e-814c-4a3c-b5ed-19612e4331bc",
+   "id": "ab-9394684e-814c-4a3c-b5ed-19612e4331bc",
+   "fn": "strategy-ops",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Illumio",
+   "title": "Director, Product Marketing, Ecosystems and Growth",
+   "locations": [
+    "Sunnyvale, California - HQ"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-10-01T16:18:57.284+00:00",
+   "url": "https://jobs.ashbyhq.com/illumio/25a65c45-c226-4eb5-b431-bf66d1b7eb8c",
+   "id": "ab-25a65c45-c226-4eb5-b431-bf66d1b7eb8c",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Okta",
+   "title": "Senior Director of Partner Product Marketing",
+   "locations": [
+    "Bellevue, Washington",
+    "Chicago, Illinois",
+    "Toronto, Ontario, Canada"
+   ],
+   "dept": "",
+   "posted": "2026-10-01T10:46:46-04:00",
+   "url": "https://www.okta.com/company/careers/opportunity/8220791?gh_jid=8220791",
+   "id": "gh-8220791",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Databricks",
+   "title": "Chief of Staff to the CMO",
+   "locations": [
+    "San Francisco, California"
+   ],
+   "dept": "Databricks, Inc.",
+   "posted": "2026-09-30T20:26:35-04:00",
+   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8788190002",
+   "id": "gh-8788190002",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Braze",
+   "title": "Director, Lifecycle Marketing",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "",
+   "posted": "2026-09-30T15:14:49-04:00",
+   "url": "https://job-boards.greenhouse.io/braze/jobs/8240667",
+   "id": "gh-8240667",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Freshworks",
+   "title": "Director - Demand Generation",
+   "locations": [
+    "San Mateo, CA, United States"
+   ],
+   "dept": "Other",
+   "posted": "2026-09-30T13:34:50.155Z",
+   "url": "https://jobs.smartrecruiters.com/Freshworks/744000152685425",
+   "id": "sr-744000152685425",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "tracker",
+   "ats": "smartrecruiters",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Chainguard",
+   "title": "Senior Director, AMER Field Marketing",
+   "locations": [
+    "United States - Remote"
+   ],
+   "dept": "Marketing",
+   "posted": "2026-09-30T12:55:13-04:00",
+   "url": "https://job-boards.greenhouse.io/chainguard/jobs/4717865006",
+   "id": "gh-4717865006",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "cyber",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director - Strategy & Business Development - Veeva Digital Events Services",
+   "locations": [
+    "New Jersey - Lyndhurst"
+   ],
+   "dept": "Strategy Digital Events",
+   "posted": "2026-09-28T19:04:27.814000+00:00",
+   "url": "https://jobs.lever.co/veeva/a92fb54e-d133-4171-8921-10f20205deb1",
+   "id": "lv-a92fb54e-d133-4171-8921-10f20205deb1",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Director Business Operations - Digital Marketing",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-09-25T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Director-Business-Operations---Digital-Marketing_JR-021433-1",
+   "id": "wd-JR-021433-1",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Gusto",
+   "title": "Head of Marketing - Symmetry",
+   "locations": [
+    "Denver, CO - Hybrid",
+    "San Francisco, CA - Hybrid",
+    "Scottsdale, AZ - Hybrid"
+   ],
+   "dept": "203200 254000 304800 25",
+   "posted": "2026-09-24T13:47:03-04:00",
+   "url": "https://job-boards.greenhouse.io/gusto/jobs/8224182",
+   "id": "gh-8224182",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "fintech",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Workday",
+   "title": "Director, Strategy and Operations - Data Cloud (Chief of Staff)",
+   "locations": [
+    "USA, CA, Pleasanton",
+    "USA, CA, Santa Clara"
+   ],
+   "dept": "",
+   "posted": "2026-09-23T00:50:22+00:00",
+   "url": "https://workday.wd5.myworkdayjobs.com/Workday/job/USA-CA-Pleasanton/Director--Strategy-and-Operations---Data-Cloud_JR-0108771-1",
+   "id": "wd-JR-0108771-1",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "fintech",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Stripe",
+   "title": "Editorial Director, Brand & Creative Partnerships",
+   "locations": [
+    "US: SF, NYC, Seattle and Remote"
+   ],
+   "dept": "",
+   "posted": "2026-09-22T19:17:58-04:00",
+   "url": "https://stripe.com/jobs/search?gh_jid=8203216",
+   "id": "gh-8203216",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "OpenAI",
+   "title": "Global Head of Events",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-09-22T17:33:46.586+00:00",
+   "url": "https://jobs.ashbyhq.com/openai/60be7108-c540-4839-87a8-41f19a75c1ce",
+   "id": "ab-60be7108-c540-4839-87a8-41f19a75c1ce",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Director of Technical Marketing Engineering",
+   "locations": [
+    "Santa Clara, United States of America"
+   ],
+   "dept": "",
+   "posted": "2026-09-22T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Santa-Clara-United-States-of-America/Director-Of-Technical-Marketing-Engineer_JR-019027",
+   "id": "wd-JR-019027",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "ClickHouse",
+   "title": "Head of Marketing, Langfuse",
+   "locations": [
+    "San Francisco",
+    "Germany",
+    "New York",
+    "The Netherlands"
+   ],
+   "dept": "Engineering Marketing",
+   "posted": "2026-09-18T19:25:12.751+00:00",
+   "url": "https://jobs.ashbyhq.com/clickhouse/5d287e14-c3fe-4442-8924-bcff052e7244",
+   "id": "ab-5d287e14-c3fe-4442-8924-bcff052e7244",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Mercor",
+   "title": "Chief of Staff to Head of Engagement Management",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "Operations Operations",
+   "posted": "2026-09-17T22:44:12.955+00:00",
+   "url": "https://jobs.ashbyhq.com/mercor/442cbd86-bda1-4b03-a5a9-6dd2000caae9",
+   "id": "ab-442cbd86-bda1-4b03-a5a9-6dd2000caae9",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Snowflake",
+   "title": "Director, Global Marketing Operations",
+   "locations": [
+    "US-CA-Menlo Park"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-09-17T18:24:30.064+00:00",
+   "url": "https://jobs.ashbyhq.com/snowflake/9befd7fb-dd0d-445c-b349-21cf2265821c",
+   "id": "ab-9befd7fb-dd0d-445c-b349-21cf2265821c",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "LaunchDarkly",
+   "title": "Head of Corporate Marketing",
+   "locations": [
+    "Remote - US"
+   ],
+   "dept": "Marketing",
+   "posted": "2026-09-17T10:50:33-04:00",
+   "url": "https://job-boards.greenhouse.io/launchdarkly/jobs/7991696003",
+   "id": "gh-7991696003",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "devtools",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Twilio",
+   "title": "Executive Communications Director, Chief Product & Technology Officer",
+   "locations": [
+    "Remote - US"
+   ],
+   "dept": "NP6HR6676-1",
+   "posted": "2026-09-16T18:00:44-04:00",
+   "url": "https://job-boards.greenhouse.io/twilio/jobs/8208337",
+   "id": "gh-8208337",
+   "fn": "marketing",
+   "sen": "c-level",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Mercor",
+   "title": "Chief of Staff, Delivery Operations",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "Operations Operations",
+   "posted": "2026-09-16T15:29:08.784+00:00",
+   "url": "https://jobs.ashbyhq.com/mercor/e6ce3017-7ed8-48b7-883f-216997348fae",
+   "id": "ab-e6ce3017-7ed8-48b7-883f-216997348fae",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Apollo.io",
+   "title": "Head of Partner Programs, Strategy and Operations",
+   "locations": [
+    "Remote, United States"
+   ],
+   "dept": "On Track",
+   "posted": "2026-09-15T19:28:01-04:00",
+   "url": "https://job-boards.greenhouse.io/apolloio/jobs/6178921004",
+   "id": "gh-6178921004",
+   "fn": "strategy-ops",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "gtm-tech",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Together AI",
+   "title": "Director of Brand",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "",
+   "posted": "2026-09-15T16:56:31-04:00",
+   "url": "https://job-boards.greenhouse.io/togetherai/jobs/5238654007",
+   "id": "gh-5238654007",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "CircleCI",
+   "title": "Director, Demand Generation",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "",
+   "posted": "2026-09-15T13:52:37-04:00",
+   "url": "http://www.circleci.com/careers/jobs/8784474002/?gh_jid=8784474002",
+   "id": "gh-8784474002",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "devtools",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Grafana Labs",
+   "title": "Regional Sales Director, Commercial, Growth | West| Remote",
+   "locations": [
+    "United States (Remote)"
+   ],
+   "dept": "",
+   "posted": "2026-09-15T13:11:53-04:00",
+   "url": "https://job-boards.greenhouse.io/grafanalabs/jobs/6191954004",
+   "id": "gh-6191954004",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "devtools",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Cribl",
+   "title": "Head of Corporate Events",
+   "locations": [
+    "Remote - United States"
+   ],
+   "dept": "",
+   "posted": "2026-09-14T14:31:58-04:00",
+   "url": "https://cribl.io/job-detail/?gh_jid=6181124004",
+   "id": "gh-6181124004",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "cyber",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Anaplan",
+   "title": "Strategic Alliances Director, ISV & Strategic Growth",
+   "locations": [
+    "San Francisco, United States"
+   ],
+   "dept": "103407 United States of America",
+   "posted": "2026-09-12T14:10:23-04:00",
+   "url": "https://job-boards.greenhouse.io/anaplan/jobs/8805255002",
+   "id": "gh-8805255002",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Sr. Director, Analyst Relations",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Sr-Director--Analyst-Relations_JR-018693-1",
+   "id": "wd-JR-018693-1",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Director, Brand & Creative",
+   "locations": [
+    "Office - USA - CA - Headquarters",
+    "Office - USA - NY"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Director--Brand---Creative_JR-021652",
+   "id": "wd-JR-021652",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Director/Sr. Director, Cortex Cloud GTM Strategy & Ops",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Director--Cortex-Cloud-GTM_JR-017864",
+   "id": "wd-JR-017864",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Director, CSP/Hyperscaler Partner Marketing",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Director--CSP---Hyperscaler-Partner-Marketing_JR-021006",
+   "id": "wd-JR-021006",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Director, Strategy and Operations of Account Health Management",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Director--Strategy-and-Operations-of-Account-Health-Management_JR-018615",
+   "id": "wd-JR-018615",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Palo Alto Networks",
+   "title": "Director, Revenue Operations",
+   "locations": [
+    "Office - USA - CA - Headquarters"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers/job/Office---USA---CA---Headquarters/Director--Revenue-Operations_JR-019429",
+   "id": "wd-JR-019429",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Zendesk",
+   "title": "Director, Marketing Operations",
+   "locations": [
+    "Remote, California, United States of America"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://zendesk.wd1.myworkdayjobs.com/zendesk/job/Remote-California-United-States-of-America/Director--Marketing-Operations_R35285",
+   "id": "wd-R35285",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Zendesk",
+   "title": "Director, Marketing Data & Analytics",
+   "locations": [
+    "Remote, California, United States of America"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://zendesk.wd1.myworkdayjobs.com/zendesk/job/Remote-California-United-States-of-America/Director--Marketing-Data---Analytics_R35305",
+   "id": "wd-R35305",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Juniper Networks (HPE)",
+   "title": "Director of Product and Solutions Marketing, Campus and Branch",
+   "locations": [
+    "San Jose, California, United States of America",
+    "Houston, Texas",
+    "Andover, Massachusetts",
+    "Roseville, California",
+    "Durham, North Carolina",
+    "Frisco, Texas, United States of America",
+    "Sunnyvale, California"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/San-Jose-California-United-States-of-America/Director-of-Product-and-Solutions-Marketing--Campus-and-Branch_1210069-2",
+   "id": "wd-1210069-2",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Workday",
+   "title": "Director of Program Management, M&A & Growth",
+   "locations": [
+    "USA, CA, Pleasanton",
+    "USA, GA, Atlanta",
+    "USA, UT, Salt Lake City"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://workday.wd5.myworkdayjobs.com/Workday/job/USA-CA-Pleasanton/Director-of-Program-Management--M-A---Growth_JR-0109770",
+   "id": "wd-JR-0109770",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "fintech",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Marvell Technology",
+   "title": "Sr. Director, Product & Technology Marketing\u2014 Optical & Data Center Systems",
+   "locations": [
+    "Santa Clara, CA",
+    "San Diego, CA"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers/job/Santa-Clara-CA/Sr-Director--Product---Technology-Marketing--Optical---Data-Center-Systems_2602912",
+   "id": "wd-2602912",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Marvell Technology",
+   "title": "Sr. Director, Product & Technology Marketing\u2014 Custom Cloud & XPU Solutions",
+   "locations": [
+    "Santa Clara, CA",
+    "US-CA - San Diego"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers/job/Santa-Clara-CA/Sr-Director--Product---Technology-Marketing--Custom-Cloud---XPU-Solutions_2602913",
+   "id": "wd-2602913",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Marvell Technology",
+   "title": "Sr. Director, Product & Technology Marketing\u2014 Connectivity Components & Ecosystem",
+   "locations": [
+    "Santa Clara, CA",
+    "San Diego, CA"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers/job/Santa-Clara-CA/Sr-Director--Product---Technology-Marketing--Connectivity-Components---Ecosystem_2602914",
+   "id": "wd-2602914",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "KLA Corporation",
+   "title": "Director, Product Marketing",
+   "locations": [
+    "Milpitas, CA"
+   ],
+   "dept": "",
+   "posted": "2026-09-12T00:50:22+00:00",
+   "url": "https://kla.wd1.myworkdayjobs.com/Search/job/Milpitas-CA/Director--Product-Marketing_2636837-1",
+   "id": "wd-2636837-1",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "workday",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Asana",
+   "title": "Head of Marketing Operations",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "529 Marketing Operations Business & Marketing Marketing",
+   "posted": "2026-09-11T18:27:29-04:00",
+   "url": "https://www.asana.com/jobs/apply/8164553?gh_jid=8164553",
+   "id": "gh-8164553",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Druva",
+   "title": "Director, Creative & Brand",
+   "locations": [
+    "Santa Clara, CA"
+   ],
+   "dept": "",
+   "posted": "2026-09-10T15:16:37-04:00",
+   "url": "https://www.druva.com/why-druva/explore/careers/jobs/8766916002/?gh_jid=8766916002",
+   "id": "gh-8766916002",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Sanity",
+   "title": "Director, Revenue Operations",
+   "locations": [
+    "Remote in the United States"
+   ],
+   "dept": "Sales 4.6 Sales Operations & Enablement",
+   "posted": "2026-09-09T21:37:12.999+00:00",
+   "url": "https://jobs.ashbyhq.com/sanity/15a2442a-76c5-44cf-b4c8-ba8ec102859a",
+   "id": "ab-15a2442a-76c5-44cf-b4c8-ba8ec102859a",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "gtm-tech",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "GitLab",
+   "title": "Director, Social Media",
+   "locations": [
+    "Remote, Canada",
+    "Remote, United States"
+   ],
+   "dept": "n/a",
+   "posted": "2026-09-09T19:09:52-04:00",
+   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8792475002",
+   "id": "gh-8792475002",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "devtools",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Cloudflare",
+   "title": "Director, Growth Sales (AI & Digital Natives)",
+   "locations": [
+    "Distributed"
+   ],
+   "dept": "5100 - Mid Market",
+   "posted": "2026-09-04T11:14:27-04:00",
+   "url": "https://boards.greenhouse.io/cloudflare/jobs/8177516?gh_jid=8177516",
+   "id": "gh-8177516",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Baseten",
+   "title": "Executive Assistant to the Head of Marketing",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "G&A People",
+   "posted": "2026-09-03T23:35:40.826+00:00",
+   "url": "https://jobs.ashbyhq.com/baseten/90917db5-8555-4a69-91c2-3b5ddbdbdd56",
+   "id": "ab-90917db5-8555-4a69-91c2-3b5ddbdbdd56",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Freshworks",
+   "title": "Director, Integrated Marketing",
+   "locations": [
+    "San Mateo, CA, United States"
+   ],
+   "dept": "Other",
+   "posted": "2026-09-03T18:28:30.560Z",
+   "url": "https://jobs.smartrecruiters.com/Freshworks/744000147332669",
+   "id": "sr-744000147332669",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "tracker",
+   "ats": "smartrecruiters",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "OpenAI",
+   "title": "Account Director, Digital Natives Growth",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "Go To Market Sales",
+   "posted": "2026-09-03T00:19:17.748+00:00",
+   "url": "https://jobs.ashbyhq.com/openai/f4467078-033c-4638-ac7e-69a532276d85",
+   "id": "ab-f4467078-033c-4638-ac7e-69a532276d85",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Notion",
+   "title": "Chief of Staff, Sales",
+   "locations": [
+    "San Francisco, California"
+   ],
+   "dept": "Sales Sales",
+   "posted": "2026-09-01T22:32:45.668+00:00",
+   "url": "https://jobs.ashbyhq.com/notion/c5c69246-74db-4960-a0e0-7945be6c30ae",
+   "id": "ab-c5c69246-74db-4960-a0e0-7945be6c30ae",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Box",
+   "title": "Director, Strategic Events",
+   "locations": [
+    "Redwood City, CA, United States, San Francisco, CA, United States"
+   ],
+   "dept": "Full-time",
+   "posted": "2026-09-01T17:08:14-04:00",
+   "url": "https://job-boards.greenhouse.io/boxinc/jobs/8163303",
+   "id": "gh-8163303",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Ironclad",
+   "title": "Senior Director, Global Sales Strategy and Operations",
+   "locations": [
+    "San Francisco",
+    "New York City"
+   ],
+   "dept": "GTM Operations GTM Operations",
+   "posted": "2026-08-31T15:30:33.341+00:00",
+   "url": "https://jobs.ashbyhq.com/ironcladhq/22380e0c-4eb9-4334-aa18-73cea7944239",
+   "id": "ab-22380e0c-4eb9-4334-aa18-73cea7944239",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Cyberhaven",
+   "title": "Director of Marketing Operations",
+   "locations": [
+    "SF Bay Area"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-08-26T19:57:39.766+00:00",
+   "url": "https://jobs.ashbyhq.com/cyberhaven/37f37330-488b-4974-bb14-5096bab4e9b8",
+   "id": "ab-37f37330-488b-4974-bb14-5096bab4e9b8",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Cursor",
+   "title": "Head of Americas Field Marketing",
+   "locations": [
+    "San Francisco",
+    "New York"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-08-26T18:26:01.071+00:00",
+   "url": "https://jobs.ashbyhq.com/cursor/d225fc95-a56f-466a-9588-d75a7f38c426",
+   "id": "ab-d225fc95-a56f-466a-9588-d75a7f38c426",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Freshworks",
+   "title": "Vice President - Corporate Communications",
+   "locations": [
+    "San Mateo, CA, United States"
+   ],
+   "dept": "Other",
+   "posted": "2026-08-26T14:04:50.020Z",
+   "url": "https://jobs.smartrecruiters.com/Freshworks/744000145753155",
+   "id": "sr-744000145753155",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "tracker",
+   "ats": "smartrecruiters",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Checkr",
+   "title": "Senior Director, Product & Solution Marketing",
+   "locations": [
+    "Denver, Colorado, United States",
+    "San Francisco, California, United States"
+   ],
+   "dept": "",
+   "posted": "2026-08-26T11:20:07-04:00",
+   "url": "https://job-boards.greenhouse.io/checkr/jobs/8145212",
+   "id": "gh-8145212",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "GitLab",
+   "title": "Chief of Staff, CRO",
+   "locations": [
+    "Remote, United States"
+   ],
+   "dept": "n/a",
+   "posted": "2026-08-24T17:41:11-04:00",
+   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8700245002",
+   "id": "gh-8700245002",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "devtools",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Amplitude",
+   "title": "Head of Product Marketing",
+   "locations": [
+    "Remote-NAMER"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-08-20T17:57:13.274+00:00",
+   "url": "https://jobs.ashbyhq.com/amplitude/c6e85c4f-f45b-4df9-9745-3223f1a9ed24",
+   "id": "ab-c6e85c4f-f45b-4df9-9745-3223f1a9ed24",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "data-infra",
+   "source": "tracker",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Zscaler",
+   "title": "Director, P&C Communications & Cultural Narrative",
+   "locations": [
+    "Santa Clara, California, USA"
+   ],
+   "dept": "Fulltime Employee People and Culture AMS",
+   "posted": "2026-08-18T21:05:07-04:00",
+   "url": "https://job-boards.greenhouse.io/zscaler/jobs/5211035007",
+   "id": "gh-5211035007",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Redis",
+   "title": "Director, Developer Marketing",
+   "locations": [
+    "HQ (San Francisco)"
+   ],
+   "dept": "Marketing Product & Technical Marketing",
+   "posted": "2026-08-17T22:05:02.015+00:00",
+   "url": "https://jobs.ashbyhq.com/redis/66bc9c95-1248-45f6-b3f1-d5c2d3994198",
+   "id": "ab-66bc9c95-1248-45f6-b3f1-d5c2d3994198",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "tracker",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Brex",
+   "title": "Director, Revenue Operations",
+   "locations": [
+    "San Francisco, California, United States"
+   ],
+   "dept": "Sales",
+   "posted": "2026-08-14T18:52:42-04:00",
+   "url": "https://www.brex.com/careers/8716927002?gh_jid=8716927002",
+   "id": "gh-8716927002",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "New Relic",
+   "title": "Director, Competitive Intelligence",
+   "locations": [
+    "Atlanta, Georgia, USA",
+    "Austin, Texas, USA",
+    "Portland, Oregon, USA"
+   ],
+   "dept": "United States of America Oregon Remote Marketing",
+   "posted": "2026-08-14T13:51:04-04:00",
+   "url": "https://job-boards.greenhouse.io/newrelic/jobs/5386803008",
+   "id": "gh-5386803008",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Anthropic",
+   "title": "Head of Community, Enterprise Marketing",
+   "locations": [
+    "San Francisco, CA | New York City, NY"
+   ],
+   "dept": "On-Site",
+   "posted": "2026-08-13T20:21:24-04:00",
+   "url": "https://job-boards.greenhouse.io/anthropic/jobs/5388719008",
+   "id": "gh-5388719008",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Vanta",
+   "title": "Head of Internal Communications",
+   "locations": [
+    "Remote U.S."
+   ],
+   "dept": "People People Business Partners",
+   "posted": "2026-08-10T15:21:32.987+00:00",
+   "url": "https://jobs.ashbyhq.com/vanta/4ecbf29d-7566-471a-96de-d604489ae5d0",
+   "id": "ab-4ecbf29d-7566-471a-96de-d604489ae5d0",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "cyber",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Harvey",
+   "title": "Head of GTM Strategy & Operations, AMER",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "Go to Market Go-to-Market",
+   "posted": "2026-08-06T18:41:21.721+00:00",
+   "url": "https://jobs.ashbyhq.com/harvey/24175721-f785-4f85-a9b7-e80973ecdfd4",
+   "id": "ab-24175721-f785-4f85-a9b7-e80973ecdfd4",
+   "fn": "strategy-ops",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Fireworks AI",
+   "title": "Head of Product Marketing",
+   "locations": [
+    "San Mateo"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-08-06T18:03:45.380+00:00",
+   "url": "https://jobs.ashbyhq.com/fireworks/d5063bc9-d2ac-4ee4-9e0c-23ea74ad83b2",
+   "id": "ab-d5063bc9-d2ac-4ee4-9e0c-23ea74ad83b2",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director - Integrated and Field Marketing",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Marketing Field Marketing",
+   "posted": "2026-08-06T17:54:50.748000+00:00",
+   "url": "https://jobs.lever.co/veeva/93fb9702-5eb2-4c42-aff7-aa84d3c61f06",
+   "id": "lv-93fb9702-5eb2-4c42-aff7-aa84d3c61f06",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director - Integrated and Field Marketing",
+   "locations": [
+    "New York - New York City"
+   ],
+   "dept": "Marketing Field Marketing",
+   "posted": "2026-08-06T17:54:18.501000+00:00",
+   "url": "https://jobs.lever.co/veeva/241951ec-deb8-4aba-922e-1e2ce560b06c",
+   "id": "lv-241951ec-deb8-4aba-922e-1e2ce560b06c",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director - Integrated and Field Marketing",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Marketing Field Marketing",
+   "posted": "2026-08-06T17:05:21.984000+00:00",
+   "url": "https://jobs.lever.co/veeva/e5b95c28-1904-4cb4-ab3e-0eb798faa54a",
+   "id": "lv-e5b95c28-1904-4cb4-ab3e-0eb798faa54a",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director of Marketing",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-08-06T16:38:49.735000+00:00",
+   "url": "https://jobs.lever.co/veeva/7e9486f7-510c-4a5a-8c62-7b2c4976c7c5",
+   "id": "lv-7e9486f7-510c-4a5a-8c62-7b2c4976c7c5",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director of Marketing",
+   "locations": [
+    "New York - New York City"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-08-06T16:38:10.571000+00:00",
+   "url": "https://jobs.lever.co/veeva/2581cb7c-34d1-43a8-8e3a-1e8c16eedc39",
+   "id": "lv-2581cb7c-34d1-43a8-8e3a-1e8c16eedc39",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director of Marketing",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-08-06T16:37:30.016000+00:00",
+   "url": "https://jobs.lever.co/veeva/74d90b13-7637-4487-985e-1f1a3373a79d",
+   "id": "lv-74d90b13-7637-4487-985e-1f1a3373a79d",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director - Product Marketing",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-08-06T15:48:41.526000+00:00",
+   "url": "https://jobs.lever.co/veeva/9d27ed05-e9a6-4507-8889-4a08e61a4da3",
+   "id": "lv-9d27ed05-e9a6-4507-8889-4a08e61a4da3",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director - Product Marketing",
+   "locations": [
+    "New York - New York City"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-08-06T15:48:00.176000+00:00",
+   "url": "https://jobs.lever.co/veeva/2b597ff7-91ef-4416-ae6e-9aa29e85ec7f",
+   "id": "lv-2b597ff7-91ef-4416-ae6e-9aa29e85ec7f",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Director - Product Marketing",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Marketing Product Marketing",
+   "posted": "2026-08-06T15:47:00.132000+00:00",
+   "url": "https://jobs.lever.co/veeva/6bbdd974-4e12-44f7-ac28-0476d79b870e",
+   "id": "lv-6bbdd974-4e12-44f7-ac28-0476d79b870e",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Harvey",
+   "title": "Head of Product Communications",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "Communications Communications",
+   "posted": "2026-08-06T14:53:02.318+00:00",
+   "url": "https://jobs.ashbyhq.com/harvey/bcc3d29e-31c1-45d7-8229-52bd143a4667",
+   "id": "ab-bcc3d29e-31c1-45d7-8229-52bd143a4667",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "LangChain",
+   "title": "Head of Narratives",
+   "locations": [
+    "San Francisco, CA"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-08-04T23:57:03.019+00:00",
+   "url": "https://jobs.ashbyhq.com/langchain/2b151a4e-f3a4-41fc-95f7-4e802906f2cb",
+   "id": "ab-2b151a4e-f3a4-41fc-95f7-4e802906f2cb",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "New Relic",
+   "title": "Director, Field Marketing - Americas",
+   "locations": [
+    "Atlanta, Georgia, USA",
+    "Austin, Texas, USA",
+    "Portland, Oregon, USA"
+   ],
+   "dept": "United States of America California Remote Marketing",
+   "posted": "2026-08-03T15:53:55-04:00",
+   "url": "https://job-boards.greenhouse.io/newrelic/jobs/5368778008",
+   "id": "gh-5368778008",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Asana",
+   "title": "Head of Digital and Scaled Customer Success",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "517 Customer Success Business & Marketing Customer Success",
+   "posted": "2026-07-30T14:39:27-04:00",
+   "url": "https://www.asana.com/jobs/apply/8078142?gh_jid=8078142",
+   "id": "gh-8078142",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Notion",
+   "title": "Head of Demand Engine",
+   "locations": [
+    "San Francisco, California",
+    "New York, New York"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-07-28T17:07:01.142+00:00",
+   "url": "https://jobs.ashbyhq.com/notion/adb34b7e-89f3-4365-9f8f-4c98d50cc0fd",
+   "id": "ab-adb34b7e-89f3-4365-9f8f-4c98d50cc0fd",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Dropbox",
+   "title": "Vice President, Revenue Operations",
+   "locations": [
+    "Remote - US: All locations"
+   ],
+   "dept": "NAMER - Executive Recruiting  Regular Full Time High Sales Strategy & Operations MGR8 Business Strategy & Ops",
+   "posted": "2026-07-28T13:58:37-04:00",
+   "url": "https://jobs.dropbox.com/listing/8067362?gh_jid=8067362",
+   "id": "gh-8067362",
+   "fn": "strategy-ops",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Braze",
+   "title": "Senior Director, GTM Product Marketing",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "",
+   "posted": "2026-07-28T12:29:24-04:00",
+   "url": "https://job-boards.greenhouse.io/braze/jobs/8089829",
+   "id": "gh-8089829",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Twilio",
+   "title": "CEO Communications Director",
+   "locations": [
+    "Remote - US"
+   ],
+   "dept": "NP6MK5516-1",
+   "posted": "2026-07-21T18:57:38-04:00",
+   "url": "https://job-boards.greenhouse.io/twilio/jobs/8077538",
+   "id": "gh-8077538",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "LaunchDarkly",
+   "title": "Head of Customer Marketing",
+   "locations": [
+    "Remote - US"
+   ],
+   "dept": "Marketing",
+   "posted": "2026-07-17T17:33:32-04:00",
+   "url": "https://job-boards.greenhouse.io/launchdarkly/jobs/7808587003",
+   "id": "gh-7808587003",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "devtools",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "ClickHouse",
+   "title": "Director, Commercial Strategy & Operations",
+   "locations": [
+    "United States"
+   ],
+   "dept": "Operations Operations",
+   "posted": "2026-07-10T15:39:56.172+00:00",
+   "url": "https://jobs.ashbyhq.com/clickhouse/454da97a-2fdc-4079-960b-4869efbe5e3b",
+   "id": "ab-454da97a-2fdc-4079-960b-4869efbe5e3b",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Drata",
+   "title": "Senior Director, Demand Generation",
+   "locations": [
+    "Remote - US "
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-07-08T19:16:06.500+00:00",
+   "url": "https://jobs.ashbyhq.com/drata/1f9f0aff-d60f-4e0d-8d6f-333551826251",
+   "id": "ab-1f9f0aff-d60f-4e0d-8d6f-333551826251",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "cyber",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Snowflake",
+   "title": "Director of Brand Strategy and AI Innovation",
+   "locations": [
+    "US-CA-Menlo Park"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-07-08T14:01:52.625+00:00",
+   "url": "https://jobs.ashbyhq.com/snowflake/50e3e858-c235-418c-93d8-080506b67248",
+   "id": "ab-50e3e858-c235-418c-93d8-080506b67248",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Snowflake",
+   "title": "Director, Brand Voice & Story",
+   "locations": [
+    "US-CA-Remote"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-07-02T21:00:03.764+00:00",
+   "url": "https://jobs.ashbyhq.com/snowflake/7a870f64-3f8c-437e-9f51-c389fd17a594",
+   "id": "ab-7a870f64-3f8c-437e-9f51-c389fd17a594",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Grafana Labs",
+   "title": "Marketing Analytics Director  | United States | Remote",
+   "locations": [
+    "United States (Remote)"
+   ],
+   "dept": "",
+   "posted": "2026-07-01T15:43:58-04:00",
+   "url": "https://job-boards.greenhouse.io/grafanalabs/jobs/6107094004",
+   "id": "gh-6107094004",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "devtools",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Stripe",
+   "title": "Head of Market Intelligence, Product Marketing",
+   "locations": [
+    "SF, Seattle, NYC, Chicago, Remote in the US"
+   ],
+   "dept": "",
+   "posted": "2026-06-29T15:10:12-04:00",
+   "url": "https://stripe.com/jobs/search?gh_jid=8036235",
+   "id": "gh-8036235",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "semis-infra",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Sigma Computing",
+   "title": "Director of Product Marketing, AI",
+   "locations": [
+    "San Francisco, CA"
+   ],
+   "dept": "",
+   "posted": "2026-06-26T11:57:16-04:00",
+   "url": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7784475003",
+   "id": "gh-7784475003",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "data-infra",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Figma",
+   "title": "Director, Business Operations",
+   "locations": [
+    "San Francisco, CA \u2022 New York, NY \u2022 United States"
+   ],
+   "dept": "",
+   "posted": "2026-06-18T16:59:01-04:00",
+   "url": "https://boards.greenhouse.io/figma/jobs/6092343004?gh_jid=6092343004",
+   "id": "gh-6092343004",
+   "fn": "strategy-ops",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Asana",
+   "title": "Head of Global Campaigns",
+   "locations": [
+    "San Francisco"
+   ],
+   "dept": "509 Revenue Marketing Business & Marketing Marketing",
+   "posted": "2026-06-18T15:24:01-04:00",
+   "url": "https://www.asana.com/jobs/apply/8001349?gh_jid=8001349",
+   "id": "gh-8001349",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Freshworks",
+   "title": "Senior Director, Marketing Intelligence & Decision Science",
+   "locations": [
+    "San Mateo, CA, United States"
+   ],
+   "dept": "Other",
+   "posted": "2026-06-17T16:28:35.068Z",
+   "url": "https://jobs.smartrecruiters.com/Freshworks/744000132685294",
+   "id": "sr-744000132685294",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "gtm-tech",
+   "source": "tracker",
+   "ats": "smartrecruiters",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Senior Director - Commercial Content Strategy NA",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Strategy Commercial - NA",
+   "posted": "2026-06-16T21:25:49.938000+00:00",
+   "url": "https://jobs.lever.co/veeva/9b2b2aae-705d-47d0-a695-275a03ad8098",
+   "id": "lv-9b2b2aae-705d-47d0-a695-275a03ad8098",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Fireworks AI",
+   "title": "Head of Marketing Operations",
+   "locations": [
+    "San Mateo",
+    "United States, Remote"
+   ],
+   "dept": "Marketing Marketing",
+   "posted": "2026-05-27T22:28:00.456+00:00",
+   "url": "https://jobs.ashbyhq.com/fireworks/0e175af6-e53a-4e48-91ba-db3aaef8dac7",
+   "id": "ab-0e175af6-e53a-4e48-91ba-db3aaef8dac7",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "remote-us",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Databricks",
+   "title": "Director, Product Marketing, AI",
+   "locations": [
+    "San Francisco, California"
+   ],
+   "dept": "Databricks, Inc.",
+   "posted": "2026-04-03T16:40:22-04:00",
+   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8487145002",
+   "id": "gh-8487145002",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Plaid",
+   "title": "Head of Product Marketing",
+   "locations": [
+    "San Francisco HQ",
+    "New York City Office"
+   ],
+   "dept": "All Departments Product Marketing",
+   "posted": "2026-03-24T20:44:36.225+00:00",
+   "url": "https://jobs.ashbyhq.com/plaid/9245bee1-0902-417f-968f-a174bf4bdf2c",
+   "id": "ab-9245bee1-0902-417f-968f-a174bf4bdf2c",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "b2b-saas",
+   "source": "broad",
+   "ats": "ashby",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Cresta",
+   "title": "Sr. Director, Product Marketing - Cresta Agents",
+   "locations": [
+    "United States (Remote)"
+   ],
+   "dept": "Full-time Marketing Sr. Director, Product Marketing - Cresta Agents",
+   "posted": "2026-03-07T11:39:04-05:00",
+   "url": "https://job-boards.greenhouse.io/cresta/jobs/5146776008",
+   "id": "gh-5146776008",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "ai",
+   "source": "broad",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Scale AI",
+   "title": "Head of GTM Strategy & Operations, Enterprise",
+   "locations": [
+    "San Francisco, CA"
+   ],
+   "dept": "Sales",
+   "posted": "2026-02-13T13:56:49-05:00",
+   "url": "https://job-boards.greenhouse.io/scaleai/jobs/4662232005",
+   "id": "gh-4662232005",
+   "fn": "strategy-ops",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "ai",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Verkada",
+   "title": "Head of Marketing Operations",
+   "locations": [
+    "San Mateo, CA United States"
+   ],
+   "dept": "Full-Time",
+   "posted": "2026-01-21T18:59:38-05:00",
+   "url": "https://job-boards.greenhouse.io/verkada/jobs/5018852007",
+   "id": "gh-5018852007",
+   "fn": "marketing",
+   "sen": "vp-head",
+   "regions": [
+    "bay-area",
+    "west-coast"
+   ],
+   "segment": "cyber",
+   "source": "tracker",
+   "ats": "greenhouse",
+   "first_seen": "2026-10-13"
+  },
+  {
+   "company": "Veeva Systems",
+   "title": "Field Marketing Director",
+   "locations": [
+    "Massachusetts - Boston"
+   ],
+   "dept": "Marketing Field Marketing",
+   "posted": "2021-03-09T23:10:22.961000+00:00",
+   "url": "https://jobs.lever.co/veeva/85789b15-662d-48e7-b795-ed3cb31872bd",
+   "id": "lv-85789b15-662d-48e7-b795-ed3cb31872bd",
+   "fn": "marketing",
+   "sen": "director",
+   "regions": [
+    "remote-us"
+   ],
+   "segment": "b2b-saas",
+   "source": "tracker",
+   "ats": "lever",
+   "first_seen": "2026-10-13"
+  }
+ ]
+}
