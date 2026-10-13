@@ -42,11 +42,14 @@ ENDPOINTS = {
 }
 SIMPLE_ATS = list(ENDPOINTS)
 
-# Workday and SmartRecruiters are paged APIs. We read every posting up to a
-# cap so very large employers can't stall the daily run.
-WORKDAY_MAX_POSTINGS = 3000        # per company
-WORKDAY_MAX_DETAIL_LOOKUPS = 400   # "3 Locations" postings we open to see where they are
-SMARTRECRUITERS_MAX_POSTINGS = 3000
+# Workday and SmartRecruiters can hold thousands of postings per company, so we
+# search them for these keywords instead of downloading everything. Titles are
+# still checked by the full classifier afterwards.
+SEARCH_KEYWORDS = ["marketing", "communications", "brand", "demand generation", "growth",
+                   "chief of staff", "strategy", "business operations", "revenue operations",
+                   "sales operations", "go-to-market", "gtm", "revops", "deal desk"]
+MAX_PER_KEYWORD = 200          # postings read per keyword per company
+MAX_DETAIL_LOOKUPS = 60        # "3 Locations" postings opened to see where they are
 
 
 # --------------------------------------------------------------------------
@@ -145,26 +148,30 @@ def fetch_workday(slug: str):
     tenant, wd, site = slug.split("|")
     host = f"https://{tenant}.{wd}.myworkdayjobs.com"
     api = f"{host}/wday/cxs/{tenant}/{site}"
-    postings, offset = {}, 0
-    while offset < WORKDAY_MAX_POSTINGS:
-        page = http_json(f"{api}/jobs", {"appliedFacets": {}, "limit": 20,
-                                         "offset": offset, "searchText": ""})
-        if page is None:
-            if offset == 0:
-                return None  # tenant/site wrong
-            break
-        items = page.get("jobPostings") or []
-        for p in items:
-            postings.setdefault(p.get("externalPath"), p)
-        offset += 20
-        if len(items) < 20:
-            break
-    # Postings in several cities only say "3 Locations"; open those to see where.
+    postings = {}
+    for i, kw in enumerate(SEARCH_KEYWORDS):
+        offset = 0
+        while offset < MAX_PER_KEYWORD:
+            page = http_json(f"{api}/jobs", {"appliedFacets": {}, "limit": 20,
+                                             "offset": offset, "searchText": kw})
+            if page is None:
+                if i == 0 and offset == 0:
+                    return None  # tenant/site wrong
+                break
+            items = page.get("jobPostings") or []
+            for p in items:
+                postings.setdefault(p.get("externalPath"), p)
+            offset += 20
+            if len(items) < 20:
+                break
+    # Postings in several cities only say "3 Locations"; open those, but only
+    # for titles we'd keep, so the run stays quick.
     lookups = 0
     for p in postings.values():
-        if lookups >= WORKDAY_MAX_DETAIL_LOOKUPS:
+        if lookups >= MAX_DETAIL_LOOKUPS:
             break
-        if re.match(r"\d+ Locations?$", p.get("locationsText") or ""):
+        if re.match(r"\d+ Locations?$", p.get("locationsText") or "") and \
+                classify_function(p.get("title") or "") in FUNCTION_LABELS:
             lookups += 1
             info = http_json(f"{api}{p['externalPath']}") or {}
             jp = info.get("jobPostingInfo") or {}
@@ -174,19 +181,25 @@ def fetch_workday(slug: str):
 
 def fetch_smartrecruiters(slug: str):
     base = f"https://api.smartrecruiters.com/v1/companies/{slug}/postings"
-    found, offset = {}, 0
-    while offset < SMARTRECRUITERS_MAX_POSTINGS:
-        page = http_json(f"{base}?{urllib.parse.urlencode({'limit': 100, 'offset': offset})}")
-        if page is None:
-            break
-        items = page.get("content") or []
-        for p in items:
-            found.setdefault(p.get("id"), p)
-        offset += 100
-        if len(items) < 100:
-            break
-    if not found:
-        return None  # unknown company, or nothing posted
+    found = {}
+    for i, kw in enumerate(SEARCH_KEYWORDS):
+        offset = 0
+        while offset < MAX_PER_KEYWORD:
+            page = http_json(f"{base}?{urllib.parse.urlencode({'q': kw, 'limit': 100, 'offset': offset})}")
+            if page is None:
+                if i == 0 and offset == 0:
+                    return None
+                break
+            items = page.get("content") or []
+            for p in items:
+                found.setdefault(p.get("id"), p)
+            offset += 100
+            if len(items) < 100:
+                break
+    if not found:  # confirm the company exists at all
+        probe = http_json(f"{base}?limit=1")
+        if not probe or not probe.get("totalFound"):
+            return None
     return {"slug": slug, "postings": list(found.values())}
 
 
@@ -368,12 +381,14 @@ FUNCTIONS = [
     ("engineering", rx(r"design verification", r"physical design", r"asic", r"rtl", r"analog design",
                        r"circuit design", r"silicon", r"chip design", r"design engineer(?:ing)?",
                        r"security (?:analyst|operations|researcher|engineer(?:ing)?)", r"soc analyst")),
+    ("revops", rx(r"revenue operations", r"revops", r"rev ops", r"sales operations", r"sales ops",
+                  r"gtm (?:operations|ops|systems|planning)", r"go[- ]to[- ]market (?:operations|systems|planning)",
+                  r"sales strategy (?:&|and) operations", r"sales planning", r"deal desk", r"revenue strategy",
+                  r"sales enablement operations", r"commercial operations", r"forecasting")),
     ("strategy-ops", rx(r"chief of staff", r"strategy (?:&|and) operations", r"strategic operations",
-                        r"business operations", r"bizops", r"revenue operations", r"revops",
-                        r"gtm (?:operations|strategy|planning)", r"go[- ]to[- ]market (?:operations|strategy)",
-                        r"sales operations", r"sales strategy", r"deal desk", r"sales planning",
-                        r"corporate strategy", r"strategy (?:&|and) planning", r"strategic initiatives",
-                        r"pricing")),
+                        r"business operations", r"bizops", r"gtm strategy", r"go[- ]to[- ]market strategy",
+                        r"sales strategy", r"corporate strategy", r"strategy (?:&|and) planning",
+                        r"strategic initiatives", r"strategic planning", r"operating cadence")),
     ("people", rx(r"recruit(?:er|ing|ment)", r"talent", r"sourcer", r"people", r"human resources",
                   r"hr", r"hrbp", r"total rewards", r"compensation", r"benefits", r"learning (?:&|and) development",
                   r"workplace experience", r"employee experience", r"dei", r"mobility")),
@@ -428,13 +443,13 @@ FUNCTIONS = [
                       r"procurement", r"sourcing", r"fulfillment", r"warehouse", r"technician",
                       r"coo", r"general manager")),
 ]
+# Every title is still classified against all functions above (so "Sales Engineer" or
+# "Product Designer" can't slip in as marketing), but only these are kept.
+# Add a key from FUNCTIONS here to track another function.
 FUNCTION_LABELS = {  # shown on the page; order here is the order of the filter chips
-    "marketing": "Marketing", "strategy-ops": "Strategy & Ops / RevOps / CoS",
-    "sales": "Sales", "sales-engineering": "Sales Engineering", "partnerships": "Partnerships",
-    "customer-success": "Customer Success & Support", "product": "Product", "design": "Design",
-    "engineering": "Engineering", "data": "Data & Analytics", "it": "IT", "finance": "Finance",
-    "people": "People / HR / Recruiting", "legal": "Legal & Compliance", "operations": "Operations",
-    "other": "Other",
+    "marketing": "Marketing",
+    "strategy-ops": "Strategy & Operations / Chief of Staff",
+    "revops": "RevOps / Sales & GTM Ops",
 }
 
 # Seniority: first match wins
@@ -606,6 +621,8 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
             continue
         for j in all_jobs:
             fn = classify_function(j["title"], j["dept"])
+            if fn not in FUNCTION_LABELS:
+                continue
             sen = classify_seniority(j["title"])
             regions = classify_regions(j["locations"], j["remote_flag"])
             if not regions:
