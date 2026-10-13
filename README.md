@@ -1,12 +1,12 @@
 # GTM Radar (personal edition)
 
-A private version of Christine Castro's GTM Radar for senior marketing and GTM strategy roles in the **Bay Area, West Coast, and US-remote**. It covers your 100-company tracker plus a broader list of about 160 smaller and mid-size Bay Area / West Coast cyber, AI, data, devtools, GTM-tech and B2B SaaS companies (259 in total).
+A private version of Christine Castro's GTM Radar covering **every function and level** in the **Bay Area, West Coast, and US-remote**. You narrow it down on the page. It covers your 100-company tracker plus a broader list of about 160 smaller and mid-size Bay Area / West Coast cyber, AI, data, devtools, GTM-tech and B2B SaaS companies (259 in total).
 
 ## How it works
 
 1. `companies.csv` lists the companies you track. The `source` column says whether each one came from your tracker (`tracker`) or the broader list (`broad`).
 2. Every morning a GitHub Action runs `radar.py`, which reads each company's **public** job feed. No scraping of LinkedIn or Indeed, no API keys.
-3. Each role is tagged by function, seniority and region. Anything that isn't Director+ marketing or strategy/ops, or is outside the Bay Area, West Coast or US-remote, is dropped.
+3. Each role is tagged by function, seniority and region. Roles outside the Bay Area, West Coast or US-remote are dropped; everything else is kept.
 4. Results land in `docs/jobs.json`. `docs/index.html` is the filterable page, served free by GitHub Pages.
 
 Supported job systems: **Greenhouse, Lever, Ashby, Workday, SmartRecruiters**.
@@ -15,9 +15,14 @@ Supported job systems: **Greenhouse, Lever, Ashby, Workday, SmartRecruiters**.
 
 The page keeps your filters in the URL, so you can bookmark views:
 
+Functions: Marketing, Strategy & Ops / RevOps / CoS, Sales, Sales Engineering, Partnerships, Customer Success & Support, Product, Design, Engineering, Data & Analytics, IT, Finance, People / HR / Recruiting, Legal & Compliance, Operations, Other.
+Levels: C-level, VP / Head, Director, Manager, Senior / Staff / Principal IC, Individual contributor, Intern / New grad.
+"All" (or leaving a row unselected) means no filter on that row. Numbers on each button show how many roles you'd get.
+
 | View | URL ending |
 |---|---|
-| Default: Bay Area + remote, Director+, last 7 days | `index.html` |
+| Default: all functions and levels, Bay Area + remote, last 7 days | `index.html` |
+| Your search: marketing + strategy/ops, Director and up | `index.html?fn=marketing,strategy-ops&sen=c-level,vp-head,director` |
 | Bay Area only | `index.html?region=bay-area` |
 | Whole West Coast, last 30 days | `index.html?region=bay-area,west-coast,remote-us&posted=30` |
 | Only companies from your tracker | `index.html?src=tracker` |
@@ -71,11 +76,10 @@ python3 -m http.server -d docs 8000 # then open http://localhost:8000
 ## Tuning the filters
 
 All matching rules are near the top of the classification section in `radar.py`:
-- `FUNCTIONS`: words that make a title count as marketing or strategy/ops
-- `NOT_FUNCTION`: words that disqualify a title (engineer, account executive, etc.)
-- `SENIORITY`: C-level, VP/Head, Director patterns. "Associate Director" and "Creative Director" are excluded; "Chief of Staff" counts as Director level
+- `FUNCTIONS`: title words for each function. First match wins, so specific phrases sit above broad words ("Sales Engineer" before "Engineer", "Product Marketing" before "Product")
+- `SENIORITY`, `ROLE_MANAGER`, `PEOPLE_MANAGER`: level rules. "Product Manager" or "Customer Success Manager" counts as an individual role; "Manager, Product Marketing" or "Senior Manager" counts as Manager. "Associate Director" counts as Manager; "Chief of Staff" counts as Director; "...to the CEO" doesn't make a title C-level
 - `BAY_AREA`, `WEST_COAST`: city lists
-- `WORKDAY_SEARCHES`: keywords used to search Workday and SmartRecruiters sites (those systems are searched rather than downloaded in full)
+- `WORKDAY_MAX_POSTINGS`, `SMARTRECRUITERS_MAX_POSTINGS`: per-company caps so very large employers can't stall the daily run
 
 ## Testing offline
 

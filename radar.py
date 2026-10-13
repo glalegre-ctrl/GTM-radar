@@ -42,12 +42,11 @@ ENDPOINTS = {
 }
 SIMPLE_ATS = list(ENDPOINTS)
 
-# Workday has no single board API, but every Workday careers site exposes the
-# same JSON search endpoint its own page uses. We search a few GTM keywords
-# rather than paging through thousands of engineering roles.
-WORKDAY_SEARCHES = ["marketing", "communications", "brand", "chief of staff",
-                    "go-to-market", "revenue operations", "growth"]
-WORKDAY_MAX_PER_SEARCH = 200
+# Workday and SmartRecruiters are paged APIs. We read every posting up to a
+# cap so very large employers can't stall the daily run.
+WORKDAY_MAX_POSTINGS = 3000        # per company
+WORKDAY_MAX_DETAIL_LOOKUPS = 400   # "3 Locations" postings we open to see where they are
+SMARTRECRUITERS_MAX_POSTINGS = 3000
 
 
 # --------------------------------------------------------------------------
@@ -146,28 +145,27 @@ def fetch_workday(slug: str):
     tenant, wd, site = slug.split("|")
     host = f"https://{tenant}.{wd}.myworkdayjobs.com"
     api = f"{host}/wday/cxs/{tenant}/{site}"
-    postings = {}
-    for kw in WORKDAY_SEARCHES:
-        offset = 0
-        while offset < WORKDAY_MAX_PER_SEARCH:
-            page = http_json(f"{api}/jobs", {"appliedFacets": {}, "limit": 20,
-                                             "offset": offset, "searchText": kw})
-            if page is None:
-                if kw == WORKDAY_SEARCHES[0] and offset == 0:
-                    return None  # tenant/site wrong
-                break
-            items = page.get("jobPostings") or []
-            for p in items:
-                postings.setdefault(p.get("externalPath"), p)
-            offset += 20
-            if len(items) < 20:
-                break
-    # Postings in several cities only say "3 Locations"; look those up, but
-    # only for titles that could pass our filters (keeps calls low).
+    postings, offset = {}, 0
+    while offset < WORKDAY_MAX_POSTINGS:
+        page = http_json(f"{api}/jobs", {"appliedFacets": {}, "limit": 20,
+                                         "offset": offset, "searchText": ""})
+        if page is None:
+            if offset == 0:
+                return None  # tenant/site wrong
+            break
+        items = page.get("jobPostings") or []
+        for p in items:
+            postings.setdefault(p.get("externalPath"), p)
+        offset += 20
+        if len(items) < 20:
+            break
+    # Postings in several cities only say "3 Locations"; open those to see where.
+    lookups = 0
     for p in postings.values():
-        t = p.get("title") or ""
-        if re.match(r"\d+ Locations?$", p.get("locationsText") or "") and \
-                classify_function(t, "") and classify_seniority(t):
+        if lookups >= WORKDAY_MAX_DETAIL_LOOKUPS:
+            break
+        if re.match(r"\d+ Locations?$", p.get("locationsText") or ""):
+            lookups += 1
             info = http_json(f"{api}{p['externalPath']}") or {}
             jp = info.get("jobPostingInfo") or {}
             p["_locations"] = [jp.get("location")] + list(jp.get("additionalLocations") or [])
@@ -176,24 +174,19 @@ def fetch_workday(slug: str):
 
 def fetch_smartrecruiters(slug: str):
     base = f"https://api.smartrecruiters.com/v1/companies/{slug}/postings"
-    found = {}
-    for kw in WORKDAY_SEARCHES:  # same GTM keywords
-        offset = 0
-        while offset < 400:
-            q = urllib.parse.urlencode({"q": kw, "limit": 100, "offset": offset})
-            page = http_json(f"{base}?{q}")
-            if page is None:
-                return None if not found else {"slug": slug, "postings": list(found.values())}
-            items = page.get("content") or []
-            for p in items:
-                found.setdefault(p.get("id"), p)
-            offset += 100
-            if len(items) < 100:
-                break
-    if not found:  # confirm the company exists at all
-        probe = http_json(f"{base}?limit=1")
-        if not probe or not probe.get("totalFound"):
-            return None
+    found, offset = {}, 0
+    while offset < SMARTRECRUITERS_MAX_POSTINGS:
+        page = http_json(f"{base}?{urllib.parse.urlencode({'limit': 100, 'offset': offset})}")
+        if page is None:
+            break
+        items = page.get("content") or []
+        for p in items:
+            found.setdefault(p.get("id"), p)
+        offset += 100
+        if len(items) < 100:
+            break
+    if not found:
+        return None  # unknown company, or nothing posted
     return {"slug": slug, "postings": list(found.values())}
 
 
@@ -368,31 +361,107 @@ NORMALIZERS = {"greenhouse": norm_greenhouse, "lever": norm_lever, "ashby": norm
 def rx(*words):
     return re.compile(r"\b(?:" + "|".join(words) + r")\b", re.I)
 
+# Function: first match wins, so specific phrases come before broad words
+# ("Sales Engineer" is sales engineering, not engineering; "Product Marketing"
+# is marketing, not product).
 FUNCTIONS = [
-    # order matters: first match wins
-    ("strategy-ops", rx(r"chief of staff", r"strategy (?:&|and) operations", r"gtm strategy",
-                        r"go[- ]to[- ]market strategy", r"revenue operations", r"revops",
-                        r"gtm operations", r"business operations")),
-    ("marketing", rx(r"marketing", r"cmo", r"demand gen(?:eration)?", r"growth",
-                     r"brand", r"communications", r"comms", r"public relations", r"pr",
-                     r"content", r"field events?", r"events", r"digital experiences?",
-                     r"web(?:site)? (?:strategy|experience|operations)", r"martech",
-                     r"abm", r"lifecycle", r"social media", r"analyst relations",
-                     r"creative", r"storytelling", r"narrative", r"go[- ]to[- ]market")),
+    ("engineering", rx(r"design verification", r"physical design", r"asic", r"rtl", r"analog design",
+                       r"circuit design", r"silicon", r"chip design", r"design engineer(?:ing)?",
+                       r"security (?:analyst|operations|researcher|engineer(?:ing)?)", r"soc analyst")),
+    ("strategy-ops", rx(r"chief of staff", r"strategy (?:&|and) operations", r"strategic operations",
+                        r"business operations", r"bizops", r"revenue operations", r"revops",
+                        r"gtm (?:operations|strategy|planning)", r"go[- ]to[- ]market (?:operations|strategy)",
+                        r"sales operations", r"sales strategy", r"deal desk", r"sales planning",
+                        r"corporate strategy", r"strategy (?:&|and) planning", r"strategic initiatives",
+                        r"pricing")),
+    ("people", rx(r"recruit(?:er|ing|ment)", r"talent", r"sourcer", r"people", r"human resources",
+                  r"hr", r"hrbp", r"total rewards", r"compensation", r"benefits", r"learning (?:&|and) development",
+                  r"workplace experience", r"employee experience", r"dei", r"mobility")),
+    ("sales-engineering", rx(r"sales engineer(?:ing)?", r"solutions? engineer(?:ing)?", r"solutions? consultant",
+                             r"solutions? architect", r"pre[- ]?sales", r"field cto", r"value engineer(?:ing)?",
+                             r"technical sales", r"forward deployed")),
+    ("marketing", rx(r"marketing", r"cmo", r"demand gen(?:eration)?", r"brand", r"communications",
+                     r"comms", r"public relations", r"pr", r"content", r"events?", r"field events",
+                     r"digital experiences?", r"web(?:site)? (?:strategy|experience|operations|producer)",
+                     r"martech", r"abm", r"lifecycle", r"social media", r"analyst relations",
+                     r"creative", r"copywriter", r"storytelling", r"narrative", r"seo", r"community",
+                     r"developer relations", r"devrel", r"evangelis[tm]", r"growth marketing",
+                     r"customer marketing", r"advocacy", r"market research", r"market intelligence")),
+    ("partnerships", rx(r"(?<!business )partner(?:ship)?s?", r"alliances?", r"channel", r"business development(?! rep)",
+                        r"bizdev", r"ecosystem", r"marketplace")),
+    ("sales", rx(r"account executive", r"ae", r"sales", r"(?<!technical )account manager", r"account director",
+                 r"business development representative", r"sales development", r"\w*sdr", r"\w*bdr",
+                 r"account development", r"inside sales", r"enterprise account", r"territory",
+                 r"commercial (?:lead|director|manager)", r"revenue (?:lead|director)", r"cro",
+                 r"chief revenue officer", r"major account", r"strategic account", r"named account")),
+    ("customer-success", rx(r"customer success", r"csm", r"customer experience", r"customer support",
+                            r"support (?:engineer|specialist|manager|lead|agent|representative)",
+                            r"technical support", r"technical account manager", r"tam",
+                            r"implementation", r"onboarding", r"professional services",
+                            r"customer education", r"customer enablement", r"renewals?",
+                            r"customer operations", r"client services", r"engagement manager",
+                            r"delivery (?:manager|lead|consultant)", r"consultant")),
+    ("legal", rx(r"counsel", r"legal", r"attorney", r"paralegal", r"compliance", r"privacy",
+                 r"regulatory", r"contracts?", r"policy", r"government affairs", r"trust (?:&|and) safety")),
+    ("finance", rx(r"finance", r"financial", r"fp&a", r"accounting", r"accountant", r"controller",
+                   r"tax", r"treasury", r"payroll", r"audit", r"revenue accounting", r"billing",
+                   r"procure(?:ment)?", r"cfo", r"investor relations", r"credit", r"risk analyst")),
+    ("design", rx(r"designer", r"design", r"ux", r"ui", r"user research(?:er)?", r"researcher, ux",
+                  r"illustrat(?:or|ion)", r"motion")),
+    ("data", rx(r"data scien(?:ce|tist)", r"data analyst", r"analytics", r"business intelligence", r"bi",
+                r"analyst", r"insights", r"statistic(?:ian|s)", r"economist", r"quantitative")),
+    ("product", rx(r"product manager", r"product management", r"product lead", r"product owner",
+                   r"product operations", r"product ops", r"group product", r"director of product",
+                   r"vp,? product", r"head of product", r"chief product", r"product strategy",
+                   r"technical program manager", r"tpm", r"product")),
+    ("engineering", rx(r"engineer(?:ing)?", r"developer", r"software", r"sre", r"devops", r"architect",
+                       r"scientist", r"machine learning", r"ml", r"ai researcher", r"research(?:er)?",
+                       r"firmware", r"hardware", r"programmer", r"technical lead", r"cto",
+                       r"security (?:analyst|operations|researcher)", r"infrastructure", r"qa",
+                       r"quality assurance", r"test")),
+    ("it", rx(r"it", r"information technology", r"help ?desk", r"service desk", r"systems administrator",
+              r"sysadmin", r"desktop support", r"cio", r"business systems", r"enterprise applications",
+              r"salesforce administrator", r"netsuite", r"workday (?:analyst|administrator)")),
+    ("operations", rx(r"operations", r"ops", r"program manager", r"project manager", r"supply chain",
+                      r"logistics", r"manufacturing", r"facilities", r"workplace", r"office manager",
+                      r"executive assistant", r"administrative", r"coordinator", r"planner",
+                      r"procurement", r"sourcing", r"fulfillment", r"warehouse", r"technician",
+                      r"coo", r"general manager")),
 ]
-# Titles that contain a marketing-ish word but are not marketing jobs
-NOT_FUNCTION = rx(r"engineer(?:ing)?", r"account executive", r"sales engineer", r"recruit(?:er|ing)",
-                  r"developer", r"data scientist", r"designer", r"growth engineer",
-                  r"product manager", r"accountant", r"counsel", r"intern(?:ship)?",
-                  r"representative", r"\w*sdr", r"\w*bdr")
+FUNCTION_LABELS = {  # shown on the page; order here is the order of the filter chips
+    "marketing": "Marketing", "strategy-ops": "Strategy & Ops / RevOps / CoS",
+    "sales": "Sales", "sales-engineering": "Sales Engineering", "partnerships": "Partnerships",
+    "customer-success": "Customer Success & Support", "product": "Product", "design": "Design",
+    "engineering": "Engineering", "data": "Data & Analytics", "it": "IT", "finance": "Finance",
+    "people": "People / HR / Recruiting", "legal": "Legal & Compliance", "operations": "Operations",
+    "other": "Other",
+}
 
+# Seniority: first match wins
 SENIORITY = [
-    ("c-level", rx(r"chief", r"cmo", r"cgo", r"cro", r"c[- ]suite")),
-    ("vp-head", rx(r"vp", r"vice president", r"svp", r"evp", r"head of", r"general manager")),
-    ("director", rx(r"director", r"sr\.? director", r"senior director")),
+    ("intern", rx(r"intern(?:ship)?", r"co[- ]op", r"apprentice", r"new grad(?:uate)?", r"university grad(?:uate)?",
+                  r"campus", r"graduate program", r"summer")),
+    ("c-level", rx(r"chief (?!of staff)\w+", r"c[a-z]o", r"(?<!vice )(?<!vice-)president(?! of)", r"c[- ]suite", r"founder")),
+    ("vp-head", rx(r"vp", r"svp", r"evp", r"avp", r"vice[- ]president", r"head of", r"head", r"general manager", r"gm")),
+    ("director", rx(r"director", r"chief of staff")),
 ]
-# "Associate Creative Director", "Associate Director" are usually below Director
-DEMOTE = rx(r"associate (?:creative )?director", r"art director", r"creative director")
+SENIOR_IC = rx(r"senior", r"sr", r"staff", r"principal", r"lead", r"distinguished", r"fellow", r"expert",
+               r"(?:specialist|engineer|consultant|analyst|scientist|manager|representative) (?:iii|iv|v|3|4|5)")
+# Below Director despite the word: these rank as manager level
+DEMOTE_TO_MANAGER = rx(r"associate director", r"associate (?:creative|art) director", r"assistant director")
+# "Manager" that means managing people...
+PEOPLE_MANAGER = re.compile(r"^\s*(?:sr\.?\s+|senior\s+)?manager\b|\b(?:senior|sr\.?|group|engineering|people|"
+                            r"general)\s+(?:\w+\s+)?manager\b|\bmanager\s*(?:,|of\b|[-–:]|\bii\b|\biii\b)"
+                            r"|\bsupervisor\b|\bteam lead\b|\blead,? (?:team|people)\b", re.I)
+# ...versus a role name that happens to contain it ("Product Manager", "Customer Success Manager")
+ROLE_MANAGER = rx(r"(?:product|program|project|account|success|relationship|partner|territory|case|community|"
+                  r"engagement|marketing|campaign|content|brand|events?|channel|alliances?|solutions?|"
+                  r"implementation|release|support|office|category|vendor|social media|lifecycle|"
+                  r"demand generation|field marketing|operations|enablement|renewals?|onboarding) manager")
+SENIORITY_LABELS = {
+    "c-level": "C-level", "vp-head": "VP / Head", "director": "Director", "manager": "Manager",
+    "senior-ic": "Senior / Staff / Principal IC", "ic": "Individual contributor", "intern": "Intern / New grad",
+}
 
 BAY_AREA = rx(
     r"san francisco", r"sf", r"sf bay area", r"bay area", r"silicon valley", r"south bay",
@@ -420,27 +489,38 @@ NON_US = rx(r"canada", r"toronto", r"vancouver", r"montreal", r"uk", r"united ki
             r"netherlands", r"amsterdam", r"spain", r"poland")
 
 
-def classify_function(title, dept):
-    if NOT_FUNCTION.search(title) and not re.search(r"marketing", title, re.I):
-        return None
+def classify_function(title, dept=""):
     for name, pat in FUNCTIONS:
         if pat.search(title):
             return name
-    # Fall back on department only for generic titles like "Director, Programs"
-    if re.search(r"\bmarketing\b", dept or "", re.I) and not NOT_FUNCTION.search(title):
-        return "marketing"
-    return None
+    # Generic titles ("Director, Programs"): fall back on the department name
+    for name, pat in FUNCTIONS:
+        if dept and pat.search(dept):
+            return name
+    return "other"
+
+
+REPORTS_TO = re.compile(r"\s+(?:to|for|supporting|reporting to)\s+(?:the\s+|our\s+)?(?:office of the\s+)?"
+                        r"(?:co-?)?(?:c[a-z]o|chief|president|founder|vp|svp|evp|head|exec)\b.*$", re.I)
 
 
 def classify_seniority(title):
-    if DEMOTE.search(title):
-        return None
-    if re.search(r"\bchief of staff\b", title, re.I):
-        return "director"  # senior, but not a C-level seat
+    title = REPORTS_TO.sub("", title)  # "Chief of Staff to the CMO" is not itself C-level
+    if DEMOTE_TO_MANAGER.search(title):
+        return "manager"
     for name, pat in SENIORITY:
         if pat.search(title):
             return name
-    return None
+    if re.search(r"\b(?:manager|mgr|supervisor|team lead)\b", title, re.I):
+        # "Senior Product Manager" is a senior individual role; "Manager, Product Marketing" leads people
+        if ROLE_MANAGER.search(title) and not re.search(r"\b(?:group|engineering|people)\s+(?:\w+\s+)?manager\b|"
+                                                         r"^\s*(?:sr\.?\s+|senior\s+)?manager\b|\bmanager\s+of\b", title, re.I):
+            return "senior-ic" if SENIOR_IC.search(title) else "ic"
+        if PEOPLE_MANAGER.search(title) or not ROLE_MANAGER.search(title):
+            return "manager"
+    if SENIOR_IC.search(title):
+        return "senior-ic"
+    return "ic"
 
 
 def classify_regions(locations, remote_flag):
@@ -526,17 +606,14 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
             continue
         for j in all_jobs:
             fn = classify_function(j["title"], j["dept"])
-            if not fn:
-                continue
             sen = classify_seniority(j["title"])
-            if not sen:
-                continue
             regions = classify_regions(j["locations"], j["remote_flag"])
             if not regions:
                 continue  # outside Bay Area / West Coast / US-remote
             j.update(fn=fn, sen=sen, regions=sorted(regions),
                      segment=c["segment"], source=c["source"], ats=ats)
-            j.pop("remote_flag", None)
+            for k in ("remote_flag", "dept"):
+                j.pop(k, None)
             roles.append(j)
 
     # Write discovered board names back so tomorrow's run goes straight there
@@ -570,8 +647,10 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
         "companies_tracked": len(companies),
         "companies_ok": sum(1 for s in status if s["ok"]),
         "status": status,
+        "functions": FUNCTION_LABELS,
+        "seniorities": SENIORITY_LABELS,
         "roles": roles,
-    }, indent=1))
+    }, separators=(",", ":")))
 
     bad = [s for s in status if not s["ok"]]
     print(f"{len(roles)} matching roles from {len(companies) - len(bad)}/{len(companies)} companies -> {OUT}")
