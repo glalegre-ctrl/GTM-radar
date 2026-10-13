@@ -9,7 +9,7 @@ A private version of Christine Castro's GTM Radar for **Marketing, Strategy & Op
 3. Each role is tagged by function, seniority and region. Only Marketing, Strategy & Operations / Chief of Staff, and RevOps / Sales & GTM Ops roles in the Bay Area, West Coast or US-remote are kept.
 4. Results land in `docs/jobs.json`. `docs/index.html` is the filterable page, served free by GitHub Pages.
 
-Supported job systems: **Greenhouse, Lever, Ashby, Workday, SmartRecruiters**.
+Supported job systems: **Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Oracle Recruiting Cloud**.
 
 ## Filters and URLs
 
@@ -31,19 +31,17 @@ Levels: C-level, VP / Head, Director, Manager, Senior / Staff / Principal IC, In
 
 ## How each company's job feed is found
 
-You don't have to look up feed addresses. For each company the script tries, in order:
+You don't have to look up feed addresses. For a company with no feed yet, the script tries, in order:
 
-1. **A known feed** in the `ats` + `slug` columns, or a careers URL that already points at a job system (`boards.greenhouse.io/...`, `jobs.lever.co/...`, `jobs.ashbyhq.com/...`, `*.myworkdayjobs.com/...`, `jobs.smartrecruiters.com/...`).
-2. **Your careers page.** If `careers_url` is the company's own page (e.g. `cloudflare.com/careers`), it opens that page and looks for the job system it links to.
-3. **The company name.** It tries likely board names on Greenhouse, Lever and Ashby, and rejects a match if the feed names a different company.
+1. **`known_feeds.csv`**: feed addresses pre-filled for companies whose careers pages hide their job system. Used only until a feed is confirmed.
+2. **Your careers page.** It opens `careers_url`, looks for the job system it links to, and follows up to 4 "open positions"-style links one level deeper (many company sites put the job list on a second page).
+3. **The company name.** It tries likely board names on Greenhouse, Lever, Ashby and SmartRecruiters, then common Workday addresses. A guessed board is rejected if the feed names a different company.
 
-Whatever works is written back into `companies.csv` (the Action commits it), so later runs go straight to the right place. Feeds found by name guessing are marked `auto-found; spot-check once` in the notes column and in the page's feed-status list.
+Whatever works is written back into `companies.csv` with a note (`seeded` or `auto-found; spot-check once`), so later runs go straight there. Your own notes (priority, focus) are kept.
 
-**What won't resolve automatically:**
-- Careers pages that only load their job list with JavaScript (no link in the page itself).
-- Companies on systems not covered here: Oracle Recruiting Cloud (Oracle), Microsoft's own site (LinkedIn, GitHub), iCIMS, Taleo, Eightfold, and Phenom-only portals.
+If nothing works, the row is marked `no feed found <date>` and searched again **7 days later**, not daily, because the search is slow. To fix one sooner, open any job on that company's site and paste the job's URL into its `careers_url` cell. Workday, Greenhouse, Lever, Ashby, SmartRecruiters and Oracle links work from the next run.
 
-These show up under **Company feed status** at the bottom of the page as "not reading". To fix one, open any job on that company's site, copy the job's URL, and paste it into the `careers_url` column. If it's a Workday, Greenhouse, Lever, Ashby or SmartRecruiters link, it works from the next run. If it's one of the unsupported systems, keep that company in your tracker spreadsheet.
+**Not supported:** Rippling's own hiring system, Comeet, iCIMS, Taleo, Eightfold, Jobvite, and Microsoft's and IBM's own sites (LinkedIn, GitHub, HashiCorp). Keep those in your tracker spreadsheet.
 
 ## Setup (about 15 minutes)
 

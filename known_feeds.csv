@@ -1,0 +1,35 @@
+name,feed_url,confidence
+Fortinet,https://edel.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001,verified from fortinet.com careers page
+Oracle,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_45001,likely
+Nvidia,https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite,verified site loads
+Salesforce,https://salesforce.wd12.myworkdayjobs.com/External_Career_Site,likely
+Adobe,https://adobe.wd5.myworkdayjobs.com/external_experienced,likely
+Intel,https://intel.wd1.myworkdayjobs.com/External,likely
+Broadcom,https://broadcom.wd1.myworkdayjobs.com/External_Career,likely
+Applied Materials,https://amat.wd1.myworkdayjobs.com/External,likely
+Lam Research,https://lamresearch.wd1.myworkdayjobs.com/LAM,likely
+Cadence Design Systems,https://cadence.wd1.myworkdayjobs.com/External_Careers,likely
+Equinix,https://equinix.wd1.myworkdayjobs.com/External,likely
+Zoom Communications,https://zoom.wd5.myworkdayjobs.com/Zoom,likely
+Aruba Networks,https://hpe.wd5.myworkdayjobs.com/Jobsathpe,likely (HPE-wide site)
+Franklin Templeton,https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1,likely
+Proofpoint,https://proofpoint.wd5.myworkdayjobs.com/ProofpointCareers,likely
+Cloudera,https://cloudera.wd5.myworkdayjobs.com/External_Career,possible
+Guidewire Software,https://guidewire.wd5.myworkdayjobs.com/external,possible
+RingCentral,https://ringcentral.wd1.myworkdayjobs.com/RingCentral_Careers,possible
+Western Digital,https://wdc.wd5.myworkdayjobs.com/WD,possible
+Cisco Systems,https://cisco.wd5.myworkdayjobs.com/Cisco_Careers,possible
+Trellix,https://trellix.wd1.myworkdayjobs.com/EnterpriseCareers,possible
+Visa Inc.,https://jobs.smartrecruiters.com/Visa,likely
+ServiceNow,https://jobs.smartrecruiters.com/ServiceNow,likely
+SentinelOne,https://boards.greenhouse.io/sentinellabs,likely
+Glean,https://boards.greenhouse.io/gleanwork,likely
+Navan,https://boards.greenhouse.io/tripactions,likely
+Addepar,https://boards.greenhouse.io/addepar1,possible
+Armis,https://boards.greenhouse.io/armissecurity,possible
+dbt Labs,https://boards.greenhouse.io/dbtlabsinc,possible
+Redpanda,https://boards.greenhouse.io/redpandadata,possible
+Front,https://jobs.lever.co/frontapp,possible
+Clay,https://jobs.ashbyhq.com/claylabs,possible
+Monte Carlo,https://jobs.ashbyhq.com/montecarlodata,possible
+incident.io,https://jobs.ashbyhq.com/incident,possible

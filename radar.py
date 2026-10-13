@@ -56,6 +56,8 @@ MAX_DETAIL_LOOKUPS = 60        # "3 Locations" postings opened to see where they
 # Reading a careers URL into (ats, slug)
 # --------------------------------------------------------------------------
 URL_PATTERNS = [
+    ("greenhouse", re.compile(r"greenhouse\.io/embed/job_board(?:/js)?\?(?:[^\"'\s]*&)?for=([\w-]+)", re.I)),
+    ("oracle", re.compile(r"([\w-]+\.fa(?:\.[\w-]+)?\.[\w-]+)\.oraclecloud\.com/hcmUI/CandidateExperience/[\w-]+/sites/([\w-]+)", re.I)),
     ("greenhouse", re.compile(r"(?:boards|job-boards)(?:\.eu)?\.greenhouse\.io/(?:embed/job_board\?for=)?([\w-]+)", re.I)),
     ("greenhouse", re.compile(r"boards-api\.greenhouse\.io/v1/boards/([\w-]+)", re.I)),
     ("lever", re.compile(r"jobs\.(?:eu\.)?lever\.co/([\w.-]+)", re.I)),
@@ -76,6 +78,8 @@ def parse_careers_url(url: str):
                 if m.group(3).lower() in {"wday", "static", "assets"}:
                     continue
                 return ats, "|".join(m.groups())
+            if ats == "oracle":
+                return ats, "|".join(m.groups())
             if m.group(1).lower() in BAD_SLUGS:
                 continue
             return ats, m.group(1)
@@ -91,15 +95,48 @@ def http_text(url: str):
         return None, ""
 
 
+JOB_LINK_WORDS = re.compile(r"job|position|opening|opportunit|search|roles|vacanc|apply|join", re.I)
+
+
 def discover_from_page(url: str, fixtures: Path | None):
-    """Open a company's own careers page and look for the job system it links to."""
-    if fixtures:
-        f = fixtures / ("page_" + re.sub(r"[^a-z0-9]+", "_", url.lower()).strip("_") + ".html")
-        final, html = url, (f.read_text() if f.exists() else "")
-    else:
-        final, html = http_text(url)
-    # The page may itself redirect to the job board
-    return parse_careers_url(final or "") if parse_careers_url(final or "")[0] else parse_careers_url(html)
+    """Open a company's careers page and find the job system behind it. If the page
+    only links to another page of its own ("Open positions"), follow up to 4 of those."""
+    def get(u):
+        if fixtures:
+            f = fixtures / ("page_" + re.sub(r"[^a-z0-9]+", "_", u.lower()).strip("_") + ".html")
+            return u, (f.read_text() if f.exists() else "")
+        return http_text(u)
+
+    final, html = get(url)
+    for text in (final or "", html):
+        ats, slug = parse_careers_url(text)
+        if ats:
+            return ats, slug
+    base = urllib.parse.urlparse(final or url)
+    site = ".".join(base.netloc.split(".")[-2:])
+    seen, follow = {url, final}, []
+    for href in re.findall(r"""href=["']([^"'#]+)""", html or ""):
+        full = urllib.parse.urljoin(final or url, href)
+        host = urllib.parse.urlparse(full).netloc
+        if host.endswith(site) and JOB_LINK_WORDS.search(full) and full not in seen:
+            seen.add(full)
+            follow.append(full)
+    for link in follow[:4]:
+        f2, h2 = get(link)
+        for text in (f2 or "", h2):
+            ats, slug = parse_careers_url(text)
+            if ats:
+                return ats, slug
+    return None, None
+
+
+def workday_guesses(name: str):
+    """Common Workday addresses to try for a company we only know by name."""
+    tenant = slug_candidates(name)[0]
+    cap = tenant[:1].upper() + tenant[1:]
+    sites = ["External", "Careers", "External_Careers", "ExternalCareers", "External_Career_Site",
+             cap, f"{cap}Careers", f"{cap}_Careers"]
+    return [("workday", f"{tenant}|{wd}|{site}") for wd in ("wd1", "wd5", "wd3", "wd12") for site in sites]
 
 
 def slug_candidates(name: str):
@@ -181,6 +218,9 @@ def fetch_workday(slug: str):
 
 def fetch_smartrecruiters(slug: str):
     base = f"https://api.smartrecruiters.com/v1/companies/{slug}/postings"
+    probe = http_json(f"{base}?limit=1")  # unknown companies answer with zero postings
+    if not probe or not probe.get("totalFound"):
+        return None
     found = {}
     for i, kw in enumerate(SEARCH_KEYWORDS):
         offset = 0
@@ -196,11 +236,32 @@ def fetch_smartrecruiters(slug: str):
             offset += 100
             if len(items) < 100:
                 break
-    if not found:  # confirm the company exists at all
-        probe = http_json(f"{base}?limit=1")
-        if not probe or not probe.get("totalFound"):
-            return None
     return {"slug": slug, "postings": list(found.values())}
+
+
+def fetch_oracle(slug: str):
+    """Oracle Recruiting Cloud (used by Oracle, Fortinet and others): public JSON search."""
+    host, site = slug.split("|")
+    base = f"https://{host}.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
+    found = {}
+    for i, kw in enumerate(SEARCH_KEYWORDS):
+        offset = 0
+        while offset < MAX_PER_KEYWORD:
+            finder = (f"findReqs;siteNumber={site},facetsList=NONE,limit=100,offset={offset},"
+                      f'keyword="{kw}"')
+            url = f"{base}?onlyData=true&expand=requisitionList.secondaryLocations&finder={urllib.parse.quote(finder, safe='=;,')}"
+            page = http_json(url)
+            if page is None:
+                if i == 0 and offset == 0:
+                    return None
+                break
+            items = (page.get("items") or [{}])[0].get("requisitionList") or []
+            for r in items:
+                found.setdefault(r.get("Id"), r)
+            offset += 100
+            if len(items) < 100:
+                break
+    return {"host": host, "site": site, "postings": list(found.values())}
 
 
 def try_board(ats: str, slug: str, fixtures: Path | None):
@@ -211,6 +272,8 @@ def try_board(ats: str, slug: str, fixtures: Path | None):
         return fetch_workday(slug)
     if ats == "smartrecruiters":
         return fetch_smartrecruiters(slug)
+    if ats == "oracle":
+        return fetch_oracle(slug)
     data = http_json(ENDPOINTS[ats].format(slug=slug))
     if ats == "lever" and isinstance(data, list) and not data:
         return None  # Lever answers [] even for unknown slugs; treat as not found
@@ -219,22 +282,45 @@ def try_board(ats: str, slug: str, fixtures: Path | None):
     return data
 
 
+RETRY_DAYS = 7  # companies with no feed found are searched again weekly (searching is slow)
+MISS_NOTE = re.compile(r"\s*\|?\s*no feed found (\d{4}-\d{2}-\d{2})")
+
+
 def fetch_company(c: dict, fixtures: Path | None):
     """Return (ats, slug, raw) or (None, None, None)."""
     trusted = None
     if c["slug"]:
         tries = [(c["ats"], c["slug"])] if c["ats"] in NORMALIZERS else [(a, c["slug"]) for a in SIMPLE_ATS]
     else:
-        tries, trusted = [], None
-        if c["careers_url"]:  # a company careers page: find the job system it links to
+        m = MISS_NOTE.search(c.get("notes") or "")
+        if m and not fixtures:
+            last = datetime.fromisoformat(m.group(1)).date()
+            if (datetime.now(timezone.utc).date() - last).days < RETRY_DAYS:
+                return None, None, None  # searched recently; skip until next weekly retry
+        tries = []
+        if c.get("seed_url"):  # a feed address listed in known_feeds.csv
+            ats, slug = parse_careers_url(c["seed_url"])
+            if ats:
+                trusted = (ats, slug)
+                tries.append(trusted)
+        if c["careers_url"] and not trusted:  # a company careers page: find the job system behind it
             ats, slug = discover_from_page(c["careers_url"], fixtures)
             if ats:
                 trusted = (ats, slug)
                 tries.append(trusted)
-        # then guess board names across the three common systems
-        tries += [(a, s) for s in slug_candidates(c["name"]) for a in SIMPLE_ATS]
+        # then guess board names on the common systems, Workday last (most requests)
+        cands = slug_candidates(c["name"])
+        tries += [(a, s) for s in cands for a in SIMPLE_ATS]
+        tries += [("smartrecruiters", v) for v in dict.fromkeys([cands[0], cands[0].capitalize(),
+                  re.sub(r"[^A-Za-z0-9]", "", re.sub(r"\(.*?\)", "", c["name"]).split("/")[0])])]
+        tries += workday_guesses(c["name"])
     for ats, slug in tries:
-        data = try_board(ats, slug, fixtures)
+        try:
+            data = try_board(ats, slug, fixtures)
+        except Exception:
+            if (ats, slug) == tries[0] and c["slug"]:
+                raise  # a known feed failing is worth reporting
+            continue
         if data is None:
             continue
         if not c["slug"] and (ats, slug) != trusted and not looks_like(c["name"], ats, data):
@@ -249,7 +335,7 @@ def looks_like(name: str, ats: str, data) -> bool:
     key = re.sub(r"[^a-z0-9]", "", name.lower())[:6]
     if ats == "greenhouse":
         names = {j.get("company_name") for j in data.get("jobs", []) if j.get("company_name")}
-    elif ats in ("workday", "smartrecruiters"):
+    elif ats in ("workday", "smartrecruiters", "oracle"):
         return True
     elif ats == "lever":
         names = {urllib.parse.urlparse(j.get("hostedUrl", "")).path.split("/")[1] for j in data}
@@ -364,8 +450,25 @@ def norm_smartrecruiters(company, data):
         }
 
 
+def norm_oracle(company, data):
+    host, site = data["host"], data["site"]
+    for r in data.get("postings", []):
+        locs = [r.get("PrimaryLocation")] + [x.get("Name") for x in r.get("secondaryLocations") or []]
+        yield {
+            "company": company,
+            "title": (r.get("Title") or "").strip(),
+            "locations": [l for l in locs if l],
+            "dept": r.get("JobFamily") or "",
+            "remote_flag": "remote" in (r.get("WorkplaceType") or "").lower(),
+            "posted": r.get("PostedDate"),
+            "url": f"https://{host}.oraclecloud.com/hcmUI/CandidateExperience/en/sites/{site}/job/{r.get('Id')}",
+            "id": f"or-{r.get('Id')}",
+        }
+
+
 NORMALIZERS = {"greenhouse": norm_greenhouse, "lever": norm_lever, "ashby": norm_ashby,
-               "workday": norm_workday, "smartrecruiters": norm_smartrecruiters}
+               "workday": norm_workday, "smartrecruiters": norm_smartrecruiters,
+               "oracle": norm_oracle}
 
 
 # --------------------------------------------------------------------------
@@ -564,6 +667,22 @@ def classify_regions(locations, remote_flag):
 FIELDS = ["name", "careers_url", "ats", "slug", "segment", "source", "notes"]
 
 
+SEEDS = ROOT / "known_feeds.csv"
+
+
+def load_seeds():
+    """known_feeds.csv: company name -> job-feed URL, used only while a company has no feed yet."""
+    if not SEEDS.exists():
+        return {}
+    with SEEDS.open(newline="", encoding="utf-8") as f:
+        return {norm_name(r["name"]): r["feed_url"].strip() for r in csv.DictReader(f)
+                if (r.get("name") or "").strip() and (r.get("feed_url") or "").strip()}
+
+
+def norm_name(name):
+    return re.sub(r"[^a-z0-9]", "", re.sub(r"\(.*?\)", "", name).split("/")[0].lower())
+
+
 def load_companies(path=None):
     with (path or COMPANIES).open(newline="", encoding="utf-8") as f:
         rows = [r for r in csv.DictReader(f)
@@ -576,6 +695,10 @@ def load_companies(path=None):
             ats, slug = parse_careers_url(r["careers_url"])
             if ats:
                 r["ats"], r["slug"] = ats, slug
+    seeds = load_seeds()
+    for r in rows:
+        if not r["slug"]:
+            r["seed_url"] = seeds.get(norm_name(r["name"]), "")
     return rows
 
 
@@ -601,22 +724,34 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
         results = list(pool.map(work, companies))
 
     status, roles, learned = [], [], 0
+    today = now.date()
     for c, ats, slug, data, err in results:
         if err or not ats:
-            note = err or ("no public board found; add the careers URL" if not c["slug"]
-                           else "board not found; check the slug or careers URL")
+            if c["slug"]:
+                note = err or "board not found; check the slug or careers URL"
+            else:
+                m = MISS_NOTE.search(c["notes"])
+                last = datetime.fromisoformat(m.group(1)).date() if m else None
+                if not last or (today - last).days >= RETRY_DAYS:
+                    c["notes"] = (MISS_NOTE.sub("", c["notes"]).strip() + f" | no feed found {today}").strip(" |")
+                    learned += 1
+                    last = today
+                nxt = last + timedelta(days=RETRY_DAYS)
+                note = (f"no job feed found (searched {last}, next search {nxt}). "
+                        "Paste a link to one of its job postings into careers_url to fix it now")
             status.append({"company": c["name"], "slug": c["slug"], "ok": False, "note": note,
                            "source": c["source"]})
             continue
         if (c["ats"], c["slug"]) != (ats, slug):
             if not c["slug"]:
-                c["notes"] = "auto-found; spot-check once"
+                how = "seeded" if c.get("seed_url") and parse_careers_url(c["seed_url"]) == (ats, slug) else "auto-found"
+                c["notes"] = (MISS_NOTE.sub("", c["notes"]).strip() + f" | {how}; spot-check once").strip(" |")
             c["ats"], c["slug"] = ats, slug  # remember what worked
             learned += 1
         all_jobs = list(NORMALIZERS[ats](c["name"], data))
         status.append({"company": c["name"], "slug": slug, "ats": ats, "ok": True,
                        "open_roles": len(all_jobs), "source": c["source"],
-                       "guessed": c["notes"].startswith("auto-found")})
+                       "guessed": "spot-check" in c["notes"]})
         if check_only:
             continue
         for j in all_jobs:
@@ -636,7 +771,7 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
     # Write discovered board names back so tomorrow's run goes straight there
     if learned and not fixtures:
         save_companies(companies, companies_path or COMPANIES)
-        print(f"Saved {learned} discovered board name(s) to {(companies_path or COMPANIES).name}")
+        print(f"Updated {learned} company row(s) in {(companies_path or COMPANIES).name}")
 
     if check_only:
         for s in status:
