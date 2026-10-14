@@ -52,7 +52,9 @@
   .more:hover { border-color: var(--accent); color: var(--accent); }
   .tag + .tag { margin-left: 0; }
   .empty { text-align: center; color: var(--muted); padding: 40px 0; }
-  details { color: var(--muted); font-size: 13px; margin-bottom: 40px; }
+  details { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  details summary { cursor: pointer; }
+  details a { color: var(--accent); }
   @media (max-width: 600px) {
     .job { grid-template-columns: 1fr; }
     .right { text-align: left; }
@@ -80,6 +82,7 @@
   </section>
   <div class="summary"><span id="count"></span><span id="updated"></span></div>
   <div class="list" id="list"></div>
+  <details id="audit"><summary id="audit-sum">Check these</summary><div id="audit-body"></div></details>
   <details id="health"><summary>Company feed status</summary><div id="health-body"></div></details>
 </main>
 
@@ -240,7 +243,18 @@ fetch("jobs.json", { cache: "no-store" })
     document.getElementById("sub").textContent =
       `Open roles from ${d.companies_ok} of ${d.companies_tracked} tracked companies, pulled from their public hiring feeds.`;
     document.getElementById("updated").textContent = "Refreshed " + new Date(d.generated).toLocaleString();
-    const bad = d.status.filter(s => !s.ok);
+    // Completeness check: roles the radar found but couldn't place, and searches that hit their limit
+    const unplaced = d.unplaced || [];
+    const capped = d.status.filter(s => s.ok && s.note && s.note.startsWith("search limit"));
+    const missing = d.status.filter(s => !s.ok);
+    document.getElementById("audit-sum").textContent =
+      `Check these: ${unplaced.length} senior roles couldn't be placed, ${capped.length} companies hit the search limit, ${missing.length} companies not readable`;
+    document.getElementById("audit-body").innerHTML =
+      (unplaced.length ? "<p><b>Senior roles found but not placed in Bay Area / West Coast / Remote (US)</b>, usually because the location text has no city. Open to check:</p><ul>" +
+        unplaced.map(u => `<li><a href="${esc(u.url)}" target="_blank" rel="noopener">${esc(u.company)}: ${esc(u.title)}</a> (${esc(u.locations.join(" · ") || "no location")}; ${esc(u.why || "")})</li>`).join("") + "</ul>" : "<p>No unplaced senior roles.</p>") +
+      (capped.length ? "<p><b>Search limit reached</b> (some roles at these companies may be missing):</p><ul>" +
+        capped.map(s => `<li>${esc(s.company)}: ${esc(s.note)}</li>`).join("") + "</ul>" : "");
+    const bad = missing;
     document.getElementById("health-body").innerHTML =
       (bad.length ? "<p>Not reading (add a job link in companies.csv):</p><ul>" + bad.map(s => `<li>${esc(s.company)}${s.slug ? " (" + esc(s.slug) + ")" : ""}: ${esc(s.note)}</li>`).join("") + "</ul>" : "<p>All feeds OK.</p>") +
       "<p>Reading: " + d.status.filter(s => s.ok).map(s => `${esc(s.company)} (${s.ats}, ${s.open_roles} open${s.guessed ? ", auto-found" : ""})`).join(", ") + "</p>";
