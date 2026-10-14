@@ -48,7 +48,7 @@ SIMPLE_ATS = list(ENDPOINTS)
 SEARCH_KEYWORDS = ["marketing", "communications", "brand", "demand generation", "growth",
                    "chief of staff", "strategy", "business operations", "revenue operations",
                    "sales operations", "go-to-market", "gtm", "revops", "deal desk"]
-MAX_PER_KEYWORD = 200          # postings read per keyword per company
+MAX_PER_KEYWORD = 600          # postings read per keyword per company (searches also match job descriptions)
 MAX_DETAIL_LOOKUPS = 60        # "3 Locations" postings opened to see where they are
 
 
@@ -185,10 +185,13 @@ def fetch_workday(slug: str):
     tenant, wd, site = slug.split("|")
     host = f"https://{tenant}.{wd}.myworkdayjobs.com"
     api = f"{host}/wday/cxs/{tenant}/{site}"
-    postings = {}
+    postings, capped = {}, []
     for i, kw in enumerate(SEARCH_KEYWORDS):
         offset = 0
-        while offset < MAX_PER_KEYWORD:
+        while True:
+            if offset >= MAX_PER_KEYWORD:
+                capped.append(kw)
+                break
             page = http_json(f"{api}/jobs", {"appliedFacets": {}, "limit": 20,
                                              "offset": offset, "searchText": kw})
             if page is None:
@@ -213,7 +216,7 @@ def fetch_workday(slug: str):
             info = http_json(f"{api}{p['externalPath']}") or {}
             jp = info.get("jobPostingInfo") or {}
             p["_locations"] = [jp.get("location")] + list(jp.get("additionalLocations") or [])
-    return {"postings": list(postings.values()), "host": host, "site": site}
+    return {"postings": list(postings.values()), "host": host, "site": site, "capped": capped}
 
 
 def fetch_smartrecruiters(slug: str):
@@ -221,10 +224,13 @@ def fetch_smartrecruiters(slug: str):
     probe = http_json(f"{base}?limit=1")  # unknown companies answer with zero postings
     if not probe or not probe.get("totalFound"):
         return None
-    found = {}
+    found, capped = {}, []
     for i, kw in enumerate(SEARCH_KEYWORDS):
         offset = 0
-        while offset < MAX_PER_KEYWORD:
+        while True:
+            if offset >= MAX_PER_KEYWORD:
+                capped.append(kw)
+                break
             page = http_json(f"{base}?{urllib.parse.urlencode({'q': kw, 'limit': 100, 'offset': offset})}")
             if page is None:
                 if i == 0 and offset == 0:
@@ -236,17 +242,20 @@ def fetch_smartrecruiters(slug: str):
             offset += 100
             if len(items) < 100:
                 break
-    return {"slug": slug, "postings": list(found.values())}
+    return {"slug": slug, "postings": list(found.values()), "capped": capped}
 
 
 def fetch_oracle(slug: str):
     """Oracle Recruiting Cloud (used by Oracle, Fortinet and others): public JSON search."""
     host, site = slug.split("|")
     base = f"https://{host}.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
-    found = {}
+    found, capped = {}, []
     for i, kw in enumerate(SEARCH_KEYWORDS):
         offset = 0
-        while offset < MAX_PER_KEYWORD:
+        while True:
+            if offset >= MAX_PER_KEYWORD:
+                capped.append(kw)
+                break
             finder = (f"findReqs;siteNumber={site},facetsList=NONE,limit=100,offset={offset},"
                       f'keyword="{kw}"')
             url = f"{base}?onlyData=true&expand=requisitionList.secondaryLocations&finder={urllib.parse.quote(finder, safe='=;,')}"
@@ -261,7 +270,7 @@ def fetch_oracle(slug: str):
             offset += 100
             if len(items) < 100:
                 break
-    return {"host": host, "site": site, "postings": list(found.values())}
+    return {"host": host, "site": site, "postings": list(found.values()), "capped": capped}
 
 
 def try_board(ats: str, slug: str, fixtures: Path | None):
@@ -548,11 +557,11 @@ FUNCTIONS = [
 ]
 # Marketing specialty (shown on the page and in alerts): first match wins
 MARKETING_SPECIALTIES = [
-    ("Marketing leadership", rx(r"cmo", r"chief marketing officer", r"(?:vp|vice president|head|svp|evp)(?:,| of)? marketing",
-                                r"marketing (?:leader|lead)$", r"general manager, marketing")),
     ("Marketing Ops & Analytics", rx(r"marketing operations", r"marketing ops", r"mops", r"martech", r"marketing technology",
                                      r"marketing automation", r"marketing analytics", r"marketing systems", r"marketing data",
                                      r"campaign operations", r"marketing science", r"attribution")),
+    ("Marketing leadership", rx(r"cmo", r"chief marketing officer", r"(?:vp|vice president|head|svp|evp)(?:,| of)? marketing",
+                                r"marketing (?:leader|lead)$", r"general manager, marketing")),
     ("Product Marketing", rx(r"product marketing", r"pmm", r"solutions? marketing", r"technical marketing",
                              r"industry marketing", r"competitive intelligence", r"market intelligence", r"go[- ]to[- ]market")),
     ("Demand Gen & Growth", rx(r"demand gen(?:eration)?", r"growth", r"acquisition", r"performance marketing", r"paid",
@@ -672,7 +681,44 @@ def classify_seniority(title):
     return "ic"
 
 
-def classify_regions(locations, remote_flag):
+# Companies headquartered in the Bay Area. Some list their main office only as
+# "Headquarters" or "HQ" (Palo Alto Networks: "Office - USA - CA - Headquarters"),
+# so a location naming the HQ counts as Bay Area for these companies.
+BAY_AREA_HQ = set(['6sense', '8x8inc', 'a10networks', 'abnormalsecurity', 'addepar', 'adobe', 'airbyte', 'airtable', 'amplitude', 'anaplan', 'anthropic', 'anyscale', 'apolloio', 'appliedmaterials', 'aristanetworks', 'armis', 'armorcode', 'arubanetworks', 'asana', 'atbay', 'atlassian', 'automationanywhere', 'barracudanetworks', 'baseten', 'benchling', 'billcom', 'blockinc', 'box', 'brex', 'broadcom', 'c3ai', 'cadencedesignsystems', 'carta', 'census', 'characterai', 'checkpointsoftware', 'checkr', 'circleci', 'ciscosystems', 'clari', 'clickhouse', 'cloudera', 'cloudflare', 'coalition', 'cognition', 'cohesity', 'confluent', 'couchbase', 'coupasoftware', 'cresta', 'cribl', 'crowdstrike', 'cursor', 'cyberhaven', 'databricks', 'decagon', 'deel', 'default', 'demandbase', 'docker', 'docusign', 'doximity', 'dropbox', 'druva', 'egnyte', 'elastic', 'endorlabs', 'equinix', 'exabeam', 'extremenetworks', 'figma', 'fireworksai', 'fivetran', 'flexport', 'fortinet', 'franklintempleton', 'freshworks', 'front', 'genesys', 'github', 'gitlab', 'glean', 'gong', 'guidewiresoftware', 'gusto', 'harness', 'harvey', 'hashicorp', 'hex', 'hightouch', 'hippocraticai', 'honeycomb', 'illumio', 'infoblox', 'informatica', 'intel', 'intercom', 'intuit', 'ironclad', 'iterable', 'jfrog', 'junipernetworks', 'klacorporation', 'lamresearch', 'langchain', 'lattice', 'launchdarkly', 'linear', 'linkedin', 'liveramp', 'marvelltechnology', 'materialsecurity', 'medallia', 'mercor', 'mercury', 'miro', 'mixpanel', 'montecarlo', 'moveworks', 'mutiny', 'navan', 'navattic', 'neon', 'netapp', 'netlify', 'netskope', 'newrelic', 'notion', 'nutanix', 'nvidia', 'okta', 'omnianalytics', 'openai', 'oracle', 'pagerduty', 'paloaltonetworks', 'perplexity', 'persona', 'plaid', 'pocus', 'postman', 'proofpoint', 'prophetsecurity', 'purestorage', 'qualified', 'redis', 'redpanda', 'replit', 'retool', 'ringcentral', 'rippling', 'rubrik', 'salesforce', 'samsara', 'scaleai', 'semgrep', 'sentinelone', 'sentry', 'servicenow', 'sierra', 'sigmacomputing', 'snowflake', 'socket', 'splunk', 'storylane', 'stripe', 'sumologic', 'surveymonkey', 'synopsys', 'teleport', 'thoughtspot', 'tibcosoftware', 'togetherai', 'trellix', 'twilio', 'unify', 'vanta', 'veevasystems', 'vercel', 'veritastechnologies', 'verkada', 'visainc', 'webflow', 'westerndigital', 'windsurf', 'workato', 'workday', 'writer', 'zendesk', 'zoomcommunications', 'zscaler'])
+HQ_WORDS = re.compile(r"\b(?:headquarters|hq|corporate office|main campus)\b", re.I)
+
+
+# Places the radar deliberately skips (rest of the US). A senior role whose location
+# matches none of these and no region either is listed under "couldn't place" for review.
+OTHER_US = rx(r"new york", r"ny", r"nyc", r"texas", r"tx", r"austin", r"dallas", r"houston", r"illinois", r"il",
+              r"chicago", r"georgia", r"atlanta", r"massachusetts", r"ma", r"boston", r"virginia", r"va",
+              r"reston", r"herndon", r"florida", r"fl", r"miami", r"colorado", r"co", r"denver", r"boulder",
+              r"north carolina", r"nc", r"raleigh", r"durham", r"ohio", r"minnesota", r"utah", r"ut",
+              r"salt lake city", r"lehi", r"arizona", r"az", r"phoenix", r"pennsylvania", r"pa", r"new jersey",
+              r"nj", r"tennessee", r"tn", r"nashville", r"michigan", r"maryland", r"md", r"missouri",
+              r"indiana", r"indianapolis", r"dc", r"district of columbia", r"washington,? d\.?c\.?",
+              r"nevada", r"las vegas", r"idaho", r"boise", r"wisconsin", r"connecticut", r"kansas", r"oklahoma",
+              r"kentucky", r"louisiana", r"alabama", r"iowa", r"nebraska", r"new hampshire", r"rhode island")
+
+
+WEST_CITIES = rx(r"los angeles", r"santa monica", r"irvine", r"san diego", r"sacramento", r"pasadena", r"culver city",
+                 r"orange county", r"long beach", r"santa barbara", r"roseville", r"folsom", r"glendale", r"burbank",
+                 r"portland", r"beaverton", r"hillsboro", r"seattle", r"bellevue", r"redmond", r"kirkland", r"tacoma")
+
+
+def placed_elsewhere(locations):
+    """True if every location clearly names somewhere outside our regions."""
+    return bool(locations) and all(NON_US.search(l) or OTHER_US.search(l) for l in locations)
+
+
+def classify_regions(locations, remote_flag, company=""):
+    if company and norm_name(company) in BAY_AREA_HQ:
+        locations = [l + " (Bay Area HQ)" if HQ_WORDS.search(l) and not NON_US.search(l) else l
+                     for l in locations or []]
+    return _classify_regions(locations, remote_flag)
+
+
+def _classify_regions(locations, remote_flag):
     """Return a set of region tags: bay-area, west-coast, remote-us."""
     tags = set()
     for loc in locations or []:
@@ -754,7 +800,7 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
     with ThreadPoolExecutor(max_workers=8) as pool:
         results = list(pool.map(work, companies))
 
-    status, roles, learned = [], [], 0
+    status, roles, learned, unplaced = [], [], 0, []
     today = now.date()
     # Two companies can lead to the same job board (an acquisition like Moveworks ->
     # ServiceNow, or sister brands like Juniper and Aruba -> HPE). List those roles once,
@@ -796,9 +842,13 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
                            "note": f"same job board as {other}; its roles are listed under {other}"})
             continue
         all_jobs = list(NORMALIZERS[ats](c["name"], data))
-        status.append({"company": c["name"], "slug": slug, "ats": ats, "ok": True,
-                       "open_roles": len(all_jobs), "source": c["source"],
-                       "guessed": "spot-check" in c["notes"]})
+        st = {"company": c["name"], "slug": slug, "ats": ats, "ok": True,
+              "open_roles": len(all_jobs), "source": c["source"],
+              "guessed": "spot-check" in c["notes"]}
+        if isinstance(data, dict) and data.get("capped"):
+            st["note"] = ("search limit reached for: " + ", ".join(data["capped"]) +
+                          "; some roles may be missing")
+        status.append(st)
         if check_only:
             continue
         for j in all_jobs:
@@ -806,9 +856,19 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
             if fn not in FUNCTION_LABELS:
                 continue
             sen = classify_seniority(j["title"])
-            regions = classify_regions(j["locations"], j["remote_flag"])
+            regions = classify_regions(j["locations"], j["remote_flag"], c["name"])
             if not regions:
-                continue  # outside Bay Area / West Coast / US-remote
+                # Outside Bay Area / West Coast / US-remote. If the location doesn't clearly
+                # name another country, list it for review: it may be a label we can't read.
+                if sen in ("c-level", "vp-head", "director", "manager") and not placed_elsewhere(j["locations"]):
+                    unplaced.append({"company": c["name"], "title": j["title"], "locations": j["locations"],
+                                     "url": j["url"], "why": "location not recognised"})
+                continue
+            if regions == {"west-coast"} and sen in ("c-level", "vp-head", "director", "manager") and \
+                    not any(WEST_CITIES.search(l) for l in j["locations"]):
+                # e.g. "USA - CA - Office" with no city: could be the Bay Area, can't tell
+                unplaced.append({"company": c["name"], "title": j["title"], "locations": j["locations"],
+                                 "url": j["url"], "why": "California or West Coast, city not given"})
             if fn == "marketing":
                 j["spec"] = marketing_specialty(j["title"])
             j.update(fn=fn, sen=sen, regions=sorted(regions),
@@ -884,6 +944,7 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
         "companies_tracked": len(companies),
         "companies_ok": sum(1 for s in status if s["ok"]),
         "status": status,
+        "unplaced": unplaced[:150],
         "functions": FUNCTION_LABELS,
         "seniorities": SENIORITY_LABELS,
         "roles": roles,
