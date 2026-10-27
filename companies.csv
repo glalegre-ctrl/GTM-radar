@@ -6,7 +6,7 @@ Axonius,,greenhouse,axonius,cyber,broad,auto-found; spot-check once
 BigID,,greenhouse,bigid,cyber,broad,auto-found; spot-check once
 Chainguard,,greenhouse,chainguard,cyber,broad,auto-found; spot-check once
 Cribl,,greenhouse,cribl,cyber,broad,auto-found; spot-check once
-Cyera,,,,cyber,broad,no feed found 2026-10-20
+Cyera,,,,cyber,broad,no feed found 2026-10-27
 Drata,,ashby,drata,cyber,broad,auto-found; spot-check once
 Vanta,,ashby,vanta,cyber,broad,auto-found; spot-check once
 Netskope,https://www.netskope.com/careers,greenhouse,netskope,cyber,tracker,auto-found; spot-check once
@@ -25,25 +25,25 @@ Huntress,,greenhouse,huntress,cyber,broad,auto-found; spot-check once
 Expel,,greenhouse,expel,cyber,broad,auto-found; spot-check once
 Coalition,,greenhouse,coalition,cyber,broad,auto-found; spot-check once
 At-Bay,,greenhouse,atbay,cyber,broad,auto-found; spot-check once
-Teleport,,,,cyber,broad,no feed found 2026-10-20
+Teleport,,,,cyber,broad,no feed found 2026-10-27
 Tailscale,,greenhouse,tailscale,cyber,broad,auto-found; spot-check once
-Aembit,,,,cyber,broad,no feed found 2026-10-20
-Astrix Security,,,,cyber,broad,no feed found 2026-10-20
+Aembit,,,,cyber,broad,no feed found 2026-10-27
+Astrix Security,,,,cyber,broad,no feed found 2026-10-27
 Sublime Security,,ashby,sublime-security,cyber,broad,auto-found; spot-check once
-Push Security,,,,cyber,broad,no feed found 2026-10-20
+Push Security,,,,cyber,broad,no feed found 2026-10-27
 Zip Security,,ashby,zip,cyber,broad,auto-found; spot-check once
 Cyberhaven,,ashby,cyberhaven,cyber,broad,auto-found; spot-check once
-Varonis,,,,cyber,broad,no feed found 2026-10-20
+Varonis,,,,cyber,broad,no feed found 2026-10-27
 Illumio,https://www.illumio.com/careers,ashby,illumio,cyber,tracker,auto-found; spot-check once
 Exabeam,,greenhouse,exabeam,cyber,broad,auto-found; spot-check once
 Armorcode,,greenhouse,armorcode,cyber,broad,auto-found; spot-check once
 Endor Labs,,greenhouse,endorlabs,cyber,broad,auto-found; spot-check once
-Aikido Security,,,,cyber,broad,no feed found 2026-10-20
+Aikido Security,,,,cyber,broad,no feed found 2026-10-27
 Dropzone AI,,greenhouse,dropzoneai,cyber,broad,auto-found; spot-check once
 Prophet Security,,ashby,prophet-security,cyber,broad,auto-found; spot-check once
-Chainalysis,,,,cyber,broad,no feed found 2026-10-20
+Chainalysis,,,,cyber,broad,no feed found 2026-10-27
 Sumo Logic,,greenhouse,sumologic,cyber,broad,auto-found; spot-check once
-Netwrix,,,,cyber,broad,no feed found 2026-10-20
+Netwrix,,,,cyber,broad,no feed found 2026-10-27
 Proofpoint,,workday,proofpoint|wd5|ProofpointCareers,cyber,broad,seeded; spot-check once
 Okta,https://www.okta.com/careers/,greenhouse,okta,cyber,tracker,auto-found; spot-check once
 Zscaler,,greenhouse,zscaler,cyber,broad,auto-found; spot-check once
@@ -61,7 +61,7 @@ Harvey,,ashby,harvey,ai,broad,auto-found; spot-check once
 Sierra,,ashby,sierra,ai,broad,auto-found; spot-check once
 Decagon,,ashby,decagon,ai,broad,auto-found; spot-check once
 Writer,,ashby,writer,ai,broad,auto-found; spot-check once
-Jasper,,,,ai,broad,no feed found 2026-10-20
+Jasper,,,,ai,broad,no feed found 2026-10-27
 Perplexity,,ashby,perplexity,ai,broad,auto-found; spot-check once
 Scale AI,https://scale.com/careers,greenhouse,scaleai,ai,tracker,auto-found; spot-check once
 Anyscale,,lever,anyscale,ai,broad,auto-found; spot-check once
@@ -72,7 +72,7 @@ Modal,,ashby,modal,ai,broad,auto-found; spot-check once
 Pinecone,,ashby,pinecone,ai,broad,auto-found; spot-check once
 Weaviate,,ashby,weaviate,ai,broad,auto-found; spot-check once
 LangChain,,ashby,langchain,ai,broad,auto-found; spot-check once
-Hebbia,,,,ai,broad,no feed found 2026-10-20
+Hebbia,,,,ai,broad,no feed found 2026-10-27
 Cresta,,greenhouse,cresta,ai,broad,auto-found; spot-check once
 Moveworks,https://www.moveworks.com/careers,smartrecruiters,ServiceNow,ai,tracker,priority Medium; Enterprise AI for IT/HR support | auto-found; spot-check once
 Synthesia,,ashby,synthesia,ai,broad,auto-found; spot-check once
@@ -80,49 +80,49 @@ ElevenLabs,,ashby,elevenlabs,ai,broad,auto-found; spot-check once
 Runway,,ashby,runway,ai,broad,auto-found; spot-check once
 Character AI,,ashby,character,ai,broad,auto-found; spot-check once
 Abridge,,ashby,abridge,ai,broad,auto-found; spot-check once
-Hippocratic AI,,,,ai,broad,no feed found 2026-10-20
+Hippocratic AI,,,,ai,broad,no feed found 2026-10-27
 Mercor,,ashby,mercor,ai,broad,auto-found; spot-check once
 Cognition,,ashby,cognition,ai,broad,auto-found; spot-check once
 Replit,,ashby,replit,ai,broad,auto-found; spot-check once
 Cursor,,ashby,cursor,ai,broad,auto-found; spot-check once
-Windsurf,,,,ai,broad,no feed found 2026-10-20
+Windsurf,,,,ai,broad,no feed found 2026-10-27
 Lovable,,greenhouse,lovable,ai,broad,auto-found; spot-check once
 Notion,,ashby,notion,ai,broad,auto-found; spot-check once
 Databricks,https://www.databricks.com/company/careers,greenhouse,databricks,ai,tracker,auto-found; spot-check once
 Snowflake,,ashby,snowflake,data-infra,broad,auto-found; spot-check once
 ClickHouse,,ashby,clickhouse,data-infra,broad,auto-found; spot-check once
 MotherDuck,,ashby,motherduck,data-infra,broad,auto-found; spot-check once
-dbt Labs,,,,data-infra,broad,no feed found 2026-10-20
+dbt Labs,,,,data-infra,broad,no feed found 2026-10-27
 Fivetran,,greenhouse,fivetran,data-infra,broad,auto-found; spot-check once
 Airbyte,,ashby,airbyte,data-infra,broad,auto-found; spot-check once
 Hightouch,,ashby,hightouch,data-infra,broad,auto-found; spot-check once
-Census,,,,data-infra,broad,no feed found 2026-10-20
+Census,,,,data-infra,broad,no feed found 2026-10-27
 Confluent,https://www.confluent.io/careers/,ashby,confluent,data-infra,tracker,auto-found; spot-check once
 Starburst,,greenhouse,starburst,data-infra,broad,auto-found; spot-check once
 Cockroach Labs,,greenhouse,cockroachlabs,data-infra,broad,auto-found; spot-check once
 Neon,,lever,neon,data-infra,broad,auto-found; spot-check once
 Supabase,,ashby,supabase,data-infra,broad,auto-found; spot-check once
 Temporal,,ashby,temporal,data-infra,broad,auto-found; spot-check once
-Redpanda,,,,data-infra,broad,no feed found 2026-10-20
+Redpanda,,,,data-infra,broad,no feed found 2026-10-27
 Monte Carlo,,ashby,montecarlodata,data-infra,broad,seeded; spot-check once
 Atlan,,ashby,atlan,data-infra,broad,auto-found; spot-check once
 Sigma Computing,,greenhouse,sigmacomputing,data-infra,broad,auto-found; spot-check once
 Hex,,ashby,hex,data-infra,broad,auto-found; spot-check once
-Omni Analytics,,,,data-infra,broad,no feed found 2026-10-20
+Omni Analytics,,,,data-infra,broad,no feed found 2026-10-27
 Vercel,,greenhouse,vercel,devtools,broad,auto-found; spot-check once
 Netlify,,greenhouse,netlify,devtools,broad,auto-found; spot-check once
-Postman,,,,devtools,broad,no feed found 2026-10-20
+Postman,,,,devtools,broad,no feed found 2026-10-27
 Grafana Labs,,greenhouse,grafanalabs,devtools,broad,auto-found; spot-check once
 Sentry,,ashby,sentry,devtools,broad,auto-found; spot-check once
 PagerDuty,https://www.pagerduty.com/careers/,greenhouse,pagerduty,devtools,tracker,auto-found; spot-check once
 LaunchDarkly,,greenhouse,launchdarkly,devtools,broad,auto-found; spot-check once
 Harness,,greenhouse,harnessinc,devtools,broad,auto-found; spot-check once
 CircleCI,,greenhouse,circleci,devtools,broad,auto-found; spot-check once
-Retool,,,,devtools,broad,no feed found 2026-10-20
+Retool,,,,devtools,broad,no feed found 2026-10-27
 GitLab,https://about.gitlab.com/jobs/,greenhouse,gitlab,devtools,tracker,auto-found; spot-check once
-HashiCorp (IBM),https://www.hashicorp.com/careers,,,semis-infra,tracker,priority Medium; Infrastructure software | no feed found 2026-10-20
+HashiCorp (IBM),https://www.hashicorp.com/careers,,,semis-infra,tracker,priority Medium; Infrastructure software | no feed found 2026-10-27
 Docker,,ashby,docker,devtools,broad,auto-found; spot-check once
-Chronosphere,,,,devtools,broad,no feed found 2026-10-20
+Chronosphere,,,,devtools,broad,no feed found 2026-10-27
 Honeycomb,,greenhouse,honeycomb,devtools,broad,auto-found; spot-check once
 incident.io,,ashby,incident,devtools,broad,seeded; spot-check once
 Linear,,ashby,linear,devtools,broad,auto-found; spot-check once
@@ -130,14 +130,14 @@ Graphite,,ashby,graphite,devtools,broad,auto-found; spot-check once
 Warp,,greenhouse,warp,devtools,broad,auto-found; spot-check once
 Clay,,ashby,claylabs,gtm-tech,broad,seeded; spot-check once
 Gong,https://www.gong.io/careers/,smartrecruiters,gong,gtm-tech,tracker,priority Medium; Revenue intelligence | auto-found; spot-check once
-Clari,,,,gtm-tech,broad,no feed found 2026-10-20
+Clari,,,,gtm-tech,broad,no feed found 2026-10-27
 Outreach,,lever,outreach,gtm-tech,broad,auto-found; spot-check once
-Highspot,,,,gtm-tech,broad,no feed found 2026-10-20
-Seismic,,,,gtm-tech,broad,no feed found 2026-10-20
+Highspot,,,,gtm-tech,broad,no feed found 2026-10-27
+Seismic,,ashby,seismic,gtm-tech,broad,auto-found; spot-check once
 6sense,https://6sense.com/careers/,greenhouse,6sense,b2b-saas,tracker,auto-found; spot-check once
 Demandbase,https://www.demandbase.com/careers/,ashby,demandbase,gtm-tech,tracker,auto-found; spot-check once
 Mutiny,,ashby,mutiny,gtm-tech,broad,auto-found; spot-check once
-Common Room,,,,gtm-tech,broad,no feed found 2026-10-20
+Common Room,,,,gtm-tech,broad,no feed found 2026-10-27
 Amplitude,https://amplitude.com/careers,ashby,amplitude,data-infra,tracker,auto-found; spot-check once
 Mixpanel,,greenhouse,mixpanel,gtm-tech,broad,auto-found; spot-check once
 Braze,,greenhouse,braze,gtm-tech,broad,auto-found; spot-check once
@@ -146,18 +146,18 @@ Customer.io,,greenhouse,customerio,gtm-tech,broad,auto-found; spot-check once
 Contentful,,greenhouse,contentful,gtm-tech,broad,auto-found; spot-check once
 Sanity,,ashby,sanity,gtm-tech,broad,auto-found; spot-check once
 Webflow,,greenhouse,webflow,gtm-tech,broad,auto-found; spot-check once
-Framer,,,,gtm-tech,broad,no feed found 2026-10-20
+Framer,,,,gtm-tech,broad,no feed found 2026-10-27
 Sprinklr,,workday,sprinklr|wd1|Careers,gtm-tech,broad,auto-found; spot-check once
 Qualified,,ashby,qualified,gtm-tech,broad,auto-found; spot-check once
 Apollo.io,,greenhouse,apolloio,gtm-tech,broad,auto-found; spot-check once
 ZoomInfo,,greenhouse,zoominfo,gtm-tech,broad,auto-found; spot-check once
-Bombora,,,,gtm-tech,broad,no feed found 2026-10-20
-Pocus,,,,gtm-tech,broad,no feed found 2026-10-20
+Bombora,,,,gtm-tech,broad,no feed found 2026-10-27
+Pocus,,,,gtm-tech,broad,no feed found 2026-10-27
 Unify,,lever,unify,gtm-tech,broad,auto-found; spot-check once
-Default,,,,gtm-tech,broad,no feed found 2026-10-20
+Default,,,,gtm-tech,broad,no feed found 2026-10-27
 Chili Piper,,ashby,chilipiper,gtm-tech,broad,auto-found; spot-check once
 Navattic,,ashby,navattic,gtm-tech,broad,auto-found; spot-check once
-Storylane,,,,gtm-tech,broad,no feed found 2026-10-20
+Storylane,,,,gtm-tech,broad,no feed found 2026-10-27
 Samsara,https://boards.greenhouse.io/samsara,greenhouse,samsara,b2b-saas,tracker,verified
 Verkada,https://www.verkada.com/careers,greenhouse,verkada,cyber,tracker,auto-found; spot-check once
 Figma,,greenhouse,figma,b2b-saas,broad,auto-found; spot-check once
@@ -168,7 +168,7 @@ Calendly,,greenhouse,calendly,b2b-saas,broad,auto-found; spot-check once
 Zapier,,ashby,zapier,b2b-saas,broad,auto-found; spot-check once
 Workato,,greenhouse,workato,b2b-saas,broad,auto-found; spot-check once
 Celonis,,greenhouse,celonis,b2b-saas,broad,auto-found; spot-check once
-Rippling,https://www.rippling.com/careers,,,b2b-saas,tracker,priority Medium; HR/IT platform | no feed found 2026-10-20
+Rippling,https://www.rippling.com/careers,,,b2b-saas,tracker,priority Medium; HR/IT platform | no feed found 2026-10-27
 Deel,,ashby,deel,b2b-saas,broad,auto-found; spot-check once
 Gusto,https://gusto.com/careers,greenhouse,gusto,fintech,tracker,auto-found; spot-check once
 Brex,,greenhouse,brex,b2b-saas,broad,auto-found; spot-check once
@@ -178,35 +178,35 @@ Stripe,https://stripe.com/jobs,greenhouse,stripe,semis-infra,tracker,auto-found;
 Ramp,https://jobs.ashbyhq.com/ramp,ashby,ramp,b2b-saas,broad,verified
 Box,https://www.box.com/careers,greenhouse,boxinc,b2b-saas,tracker,auto-found; spot-check once
 Zoom Communications,https://careers.zoom.us,workday,zoom|wd5|Zoom,b2b-saas,tracker,priority Medium; Enterprise communications | seeded; spot-check once
-Atlassian,https://www.atlassian.com/company/careers,,,devtools,tracker,priority Medium; Dev/collaboration tools | no feed found 2026-10-20
+Atlassian,https://www.atlassian.com/company/careers,,,devtools,tracker,priority Medium; Dev/collaboration tools | no feed found 2026-10-27
 ServiceTitan,,smartrecruiters,servicetitan,b2b-saas,broad,auto-found; spot-check once
 Benchling,,ashby,benchling,b2b-saas,broad,auto-found; spot-check once
 Checkr,,greenhouse,checkr,b2b-saas,broad,auto-found; spot-check once
 Lattice,,greenhouse,lattice,b2b-saas,broad,auto-found; spot-check once
 Navan,,greenhouse,tripactions,b2b-saas,broad,seeded; spot-check once
-Front,,,,b2b-saas,broad,no feed found 2026-10-20
-Intercom,,,,b2b-saas,broad,no feed found 2026-10-20
+Front,,,,b2b-saas,broad,no feed found 2026-10-27
+Intercom,,,,b2b-saas,broad,no feed found 2026-10-27
 Zendesk,https://www.zendesk.com/careers/,workday,zendesk|wd1|zendesk,gtm-tech,tracker,auto-found; spot-check once
 Canva,,smartrecruiters,canva,b2b-saas,broad,auto-found; spot-check once
-DocuSign,https://careers.docusign.com,,,b2b-saas,tracker,priority Medium; E-signature/agreements | no feed found 2026-10-20
+DocuSign,https://careers.docusign.com,,,b2b-saas,tracker,priority Medium; E-signature/agreements | no feed found 2026-10-27
 Dropbox,,greenhouse,dropbox,b2b-saas,broad,auto-found; spot-check once
-Nutanix,https://www.nutanix.com/careers,,,semis-infra,tracker,priority Medium; Cloud infrastructure | no feed found 2026-10-20
+Nutanix,https://www.nutanix.com/careers,,,semis-infra,tracker,priority Medium; Cloud infrastructure | no feed found 2026-10-27
 Pure Storage,https://www.purestorage.com/company/careers.html,ashby,purestorage,data-infra,tracker,auto-found; spot-check once
 Twilio,https://www.twilio.com/en-us/company/jobs,greenhouse,twilio,b2b-saas,tracker,auto-found; spot-check once
 Ironclad,,ashby,ironcladhq,b2b-saas,broad,auto-found; spot-check once
 Carta,https://carta.com/careers/,greenhouse,carta,fintech,tracker,auto-found; spot-check once
-Check Point Software (Americas HQ),https://careers.checkpoint.com,,,cyber,tracker,priority Medium; Cybersecurity | no feed found 2026-10-20
+Check Point Software (Americas HQ),https://careers.checkpoint.com,,,cyber,tracker,priority Medium; Cybersecurity | no feed found 2026-10-27
 Oracle (Redwood Shores hub),https://www.oracle.com/careers/,oracle,eeho.fa.us2|CX_45001,b2b-saas,tracker,priority Medium; Cloud/enterprise software | seeded; spot-check once
-Informatica,https://www.informatica.com/about-us/careers.html,,,data-infra,tracker,priority Medium; Enterprise data management | no feed found 2026-10-20
+Informatica,https://www.informatica.com/about-us/careers.html,,,data-infra,tracker,priority Medium; Enterprise data management | no feed found 2026-10-27
 Guidewire Software,https://www.guidewire.com/company/careers,workday,guidewire|wd5|external,fintech,tracker,priority Medium; P&C insurance platform | seeded; spot-check once
 Visa Inc.,https://corporate.visa.com/en/jobs.html,workday,visa|wd5|Visa,semis-infra,tracker,priority Medium; Global payments network | auto-found; spot-check once
 Coupa Software,https://www.coupa.com/careers,lever,coupa,fintech,tracker,auto-found; spot-check once
-TIBCO Software,https://www.tibco.com/careers,,,data-infra,tracker,priority Medium; Enterprise data/analytics | no feed found 2026-10-20
+TIBCO Software,https://www.tibco.com/careers,,,data-infra,tracker,priority Medium; Enterprise data/analytics | no feed found 2026-10-27
 Broadcom / VMware,https://www.broadcom.com/careers,workday,broadcom|wd1|External_Career,semis-infra,tracker,priority Medium; Semiconductors/enterprise infrastructure | seeded; spot-check once
 ServiceNow,https://careers.servicenow.com,smartrecruiters,ServiceNow,b2b-saas,tracker,priority Medium; Enterprise workflow SaaS | seeded; spot-check once
-Synopsys,https://www.synopsys.com/careers.html,,,semis-infra,tracker,priority Medium; Chip design software (EDA) | no feed found 2026-10-20
+Synopsys,https://www.synopsys.com/careers.html,,,semis-infra,tracker,priority Medium; Chip design software (EDA) | no feed found 2026-10-27
 Juniper Networks (HPE),https://careers.juniper.net,workday,hpe|wd5|Jobsathpe,semis-infra,tracker,auto-found; spot-check once
-NetApp,https://jobs.netapp.com,,,data-infra,tracker,priority Medium; Enterprise data storage | no feed found 2026-10-20
+NetApp,https://jobs.netapp.com,,,data-infra,tracker,priority Medium; Enterprise data storage | no feed found 2026-10-27
 Cisco Systems,https://jobs.cisco.com,workday,cisco|wd5|Cisco_Careers,semis-infra,tracker,priority Medium; Networking/enterprise infrastructure | seeded; spot-check once
 Adobe (Experience/Document Cloud),https://www.adobe.com/careers.html,workday,adobe|wd5|external_experienced,b2b-saas,tracker,priority Medium; Enterprise software | seeded; spot-check once
 Cloudera,https://www.cloudera.com/about/careers.html,workday,cloudera|wd5|External_Career,data-infra,tracker,priority Medium; Enterprise data platform | seeded; spot-check once
@@ -222,9 +222,9 @@ SurveyMonkey (Momentive),https://www.momentive.ai/en/careers/,greenhouse,surveym
 RingCentral,https://www.ringcentral.com/careers.html,workday,ringcentral|wd1|RingCentral_Careers,b2b-saas,tracker,priority Medium; Cloud communications | seeded; spot-check once
 Genesys,https://www.genesys.com/careers,workday,genesys|wd1|Genesys,b2b-saas,tracker,auto-found; spot-check once
 Elastic,https://www.elastic.co/careers,greenhouse,elastic,data-infra,tracker,auto-found; spot-check once
-Intuit,https://www.intuit.com/careers/,,,fintech,tracker,priority Medium; Business/financial software (mixed B2B/consumer) | no feed found 2026-10-20
+Intuit,https://www.intuit.com/careers/,,,fintech,tracker,priority Medium; Business/financial software (mixed B2B/consumer) | no feed found 2026-10-27
 Addepar,https://addepar.com/careers,greenhouse,addepar1,fintech,tracker,priority Medium; Wealth management software | seeded; spot-check once
-Egnyte,https://www.egnyte.com/careers,,,b2b-saas,tracker,priority Medium; Content governance/file sharing | no feed found 2026-10-20
+Egnyte,https://www.egnyte.com/careers,,,b2b-saas,tracker,priority Medium; Content governance/file sharing | no feed found 2026-10-27
 Redis,https://redis.io/careers/,ashby,redis,data-infra,tracker,auto-found; spot-check once
 ThoughtSpot,https://www.thoughtspot.com/careers,workday,thoughtspot|wd5|Careers,data-infra,tracker,priority Medium; Enterprise analytics | auto-found; spot-check once
 LinkedIn,https://careers.linkedin.com,lever,linkedin,semis-infra,tracker,auto-found; spot-check once
@@ -233,26 +233,26 @@ Druva,https://www.druva.com/careers,greenhouse,druva,data-infra,tracker,auto-fou
 Trellix,https://www.trellix.com/about/careers/,workday,trellix|wd1|EnterpriseCareers,cyber,tracker,priority Medium; Cybersecurity | seeded; spot-check once
 Infoblox,https://www.infoblox.com/careers/,ashby,infoblox,cyber,tracker,auto-found; spot-check once
 Extreme Networks,https://www.extremenetworks.com/careers,lever,extremenetworks,semis-infra,tracker,auto-found; spot-check once
-A10 Networks,https://www.a10networks.com/company/careers/,,,cyber,tracker,priority Medium; Networking/security | no feed found 2026-10-20
+A10 Networks,https://www.a10networks.com/company/careers/,,,cyber,tracker,priority Medium; Networking/security | no feed found 2026-10-27
 Arista Networks,https://www.arista.com/en/company/careers,smartrecruiters,aristanetworks,semis-infra,tracker,priority Medium; Enterprise networking | auto-found; spot-check once
 Marvell Technology,https://www.marvell.com/company/careers.html,workday,marvell|wd1|MarvellCareers,semis-infra,tracker,auto-found; spot-check once
 Cadence Design Systems,https://www.cadence.com/en_US/home/company/careers.html,workday,cadence|wd1|External_Careers,semis-infra,tracker,priority Medium; Chip design software (EDA) | seeded; spot-check once
 Applied Materials,https://www.appliedmaterials.com/us/en/careers.html,workday,amat|wd1|External,semis-infra,tracker,priority Medium; Semiconductor equipment | seeded; spot-check once
 KLA Corporation,https://www.kla.com/careers,workday,kla|wd1|Search,semis-infra,tracker,auto-found; spot-check once
-Lam Research,https://www.lamresearch.com/careers/,,,semis-infra,tracker,priority Medium; Semiconductor equipment | no feed found 2026-10-20
+Lam Research,https://www.lamresearch.com/careers/,,,semis-infra,tracker,priority Medium; Semiconductor equipment | no feed found 2026-10-27
 Nvidia,https://www.nvidia.com/en-us/about-nvidia/careers/,workday,nvidia|wd5|NVIDIAExternalCareerSite,ai,tracker,priority Medium; AI/data center chips (mixed w/ gaming) | seeded; spot-check once
 Intel,https://jobs.intel.com,workday,intel|wd1|External,semis-infra,tracker,priority Medium; Semiconductors (mixed B2B/consumer) | seeded; spot-check once
 Western Digital,https://www.westerndigital.com/careers,smartrecruiters,westerndigital,data-infra,tracker,priority Medium; Data storage (mixed enterprise/consumer) | auto-found; spot-check once
 Couchbase,https://www.couchbase.com/careers/,greenhouse,couchbaseinc,data-infra,tracker,auto-found; spot-check once
-Veritas Technologies,https://www.veritas.com/company/careers,,,data-infra,tracker,priority Medium; Data backup/management | no feed found 2026-10-20
-Automation Anywhere,https://www.automationanywhere.com/company/careers,,,b2b-saas,tracker,priority Medium; RPA/automation | no feed found 2026-10-20
+Veritas Technologies,https://www.veritas.com/company/careers,,,data-infra,tracker,priority Medium; Data backup/management | no feed found 2026-10-27
+Automation Anywhere,https://www.automationanywhere.com/company/careers,,,b2b-saas,tracker,priority Medium; RPA/automation | no feed found 2026-10-27
 Bill.com,https://www.bill.com/careers,greenhouse,billcom,fintech,tracker,auto-found; spot-check once
 Barracuda Networks,https://www.barracuda.com/company/careers,ashby,barracuda-networks,cyber,tracker,auto-found; spot-check once
 Aruba Networks (HPE),https://www.arubanetworks.com/careers/,workday,hpe|wd5|Jobsathpe,semis-infra,tracker,priority Medium; Enterprise networking | seeded; spot-check once
 8x8 Inc.,https://www.8x8.com/careers,smartrecruiters,8x8Inc,b2b-saas,tracker,priority Medium; Cloud communications | auto-found; spot-check once
-GitHub (Microsoft),https://github.com/about/careers,,,devtools,tracker,priority Medium; Developer tools | no feed found 2026-10-20
+GitHub (Microsoft),https://github.com/about/careers,,,devtools,tracker,priority Medium; Developer tools | no feed found 2026-10-27
 New Relic,https://newrelic.com/about/careers,greenhouse,newrelic,data-infra,tracker,auto-found; spot-check once
-Medallia,https://www.medallia.com/careers/,,,gtm-tech,tracker,priority Medium; Experience management | no feed found 2026-10-20
+Medallia,https://www.medallia.com/careers/,,,gtm-tech,tracker,priority Medium; Experience management | no feed found 2026-10-27
 Anaplan,https://www.anaplan.com/careers/,greenhouse,anaplan,b2b-saas,tracker,auto-found; spot-check once
 LiveRamp,https://liveramp.com/careers/,ashby,liveramp-inc,data-infra,tracker,auto-found; spot-check once
 Flexport,https://www.flexport.com/careers/,greenhouse,flexport,b2b-saas,tracker,auto-found; spot-check once
