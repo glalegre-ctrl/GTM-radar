@@ -20,6 +20,7 @@ import csv
 import json
 import re
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -162,10 +163,58 @@ def slug_candidates(name: str):
 # --------------------------------------------------------------------------
 # Fetching
 # --------------------------------------------------------------------------
+class RateLimited(Exception):
+    """A job system kept answering 'Too Many Requests' (HTTP 429/503) after several waits."""
+
+
+# Job systems throttle callers that ask too fast. Workday limits per data center
+# (wd1, wd5, ...), so every company on wd5 shares one queue. These are the minimum
+# gaps in seconds between two requests to the same queue.
+HOST_GAP = {"myworkdayjobs.com": 0.8, "smartrecruiters.com": 0.3, "oraclecloud.com": 0.3,
+            "greenhouse.io": 0.15, "lever.co": 0.15, "ashbyhq.com": 0.15}
+RATE_WAITS = [10, 30, 60, 120]   # seconds to wait after each 429 before trying again
+_throttle_guard = threading.Lock()
+_throttle_locks: dict[str, threading.Lock] = {}
+_throttle_last: dict[str, float] = {}
+
+
+def _throttle_key(url: str):
+    host = urllib.parse.urlparse(url).netloc.lower()
+    for fam in HOST_GAP:
+        if host.endswith(fam):
+            if fam == "myworkdayjobs.com":   # acme.wd5.myworkdayjobs.com -> wd5.myworkdayjobs.com
+                return ".".join(host.split(".")[-3:]), HOST_GAP[fam]
+            return fam, HOST_GAP[fam]
+    return None, 0
+
+
+def _throttle(url: str):
+    key, gap = _throttle_key(url)
+    if not key:
+        return
+    with _throttle_guard:
+        lock = _throttle_locks.setdefault(key, threading.Lock())
+    with lock:
+        wait = _throttle_last.get(key, 0) + gap - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        _throttle_last[key] = time.monotonic()
+
+
+def _pause_queue(url: str, seconds: float):
+    """After a 429, hold back everyone using the same queue, not just this thread."""
+    key, _ = _throttle_key(url)
+    if key:
+        with _throttle_guard:
+            _throttle_last[key] = max(_throttle_last.get(key, 0), time.monotonic() + seconds)
+
+
 def http_json(url: str, body: dict | None = None, retries: int = 2):
     data = json.dumps(body).encode() if body is not None else None
     headers = dict(UA, **({"Content-Type": "application/json"} if body is not None else {}))
-    for attempt in range(retries + 1):
+    attempt = rate_hits = 0
+    while True:
+        _throttle(url)
         try:
             req = urllib.request.Request(url, data=data, headers=headers)
             with urllib.request.urlopen(req, timeout=30) as r:
@@ -173,12 +222,24 @@ def http_json(url: str, body: dict | None = None, retries: int = 2):
         except urllib.error.HTTPError as e:
             if e.code in (400, 404, 422):
                 return None  # wrong slug or not on this ATS
-            if attempt == retries:
+            if e.code in (429, 503):
+                if rate_hits >= len(RATE_WAITS):
+                    raise RateLimited(f"HTTP {e.code} Too Many Requests from {urllib.parse.urlparse(url).netloc}")
+                try:
+                    wait = min(float(e.headers.get("Retry-After") or 0), 300) or RATE_WAITS[rate_hits]
+                except ValueError:
+                    wait = RATE_WAITS[rate_hits]
+                rate_hits += 1
+                _pause_queue(url, wait)
+                time.sleep(wait)
+                continue
+            if attempt >= retries:
                 raise
         except (urllib.error.URLError, TimeoutError):
-            if attempt == retries:
+            if attempt >= retries:
                 raise
-        time.sleep(1.5 * (attempt + 1))
+        attempt += 1
+        time.sleep(1.5 * attempt)
 
 
 def fetch_workday(slug: str):
@@ -326,16 +387,29 @@ def fetch_company(c: dict, fixtures: Path | None):
     for ats, slug in tries:
         try:
             data = try_board(ats, slug, fixtures)
-        except Exception:
+        except Exception as e:
             if (ats, slug) == tries[0] and c["slug"]:
                 raise  # a known feed failing is worth reporting
+            if isinstance(e, RateLimited):
+                c["_throttled"] = True  # don't record "no feed found" when we were only slowed down
             continue
         if data is None:
             continue
-        if not c["slug"] and (ats, slug) != trusted and not looks_like(c["name"], ats, data):
-            continue  # a guessed board name landed on a different company
+        if not c["slug"] and (ats, slug) != trusted:
+            if not looks_like(c["name"], ats, data):
+                continue  # a guessed board name landed on a different company
+            if ats in SIMPLE_ATS and posting_count(ats, data) == 0:
+                continue  # an empty board under a guessed name is usually not this company's
         return ats, slug, data
     return None, None, None
+
+
+def posting_count(ats: str, data) -> int:
+    if ats == "lever":
+        return len(data or [])
+    if isinstance(data, dict):
+        return len(data.get("jobs") or data.get("postings") or [])
+    return 0
 
 
 def looks_like(name: str, ats: str, data) -> bool:
@@ -800,6 +874,30 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
     with ThreadPoolExecutor(max_workers=8) as pool:
         results = list(pool.map(work, companies))
 
+    # Second pass: feeds that were rate-limited get one more, slower try after a pause,
+    # one company at a time, so big Workday employers (CrowdStrike, Palo Alto, Cisco...)
+    # aren't dropped for the day.
+    retry = [i for i, (c, ats, slug, data, err) in enumerate(results)
+             if not fixtures and ((err and re.search(r"429|503|Too Many|RateLimited", err)) or c.get("_throttled"))]
+    if retry:
+        print(f"Rate-limited on {len(retry)} compan(ies); waiting 90s, then retrying one at a time")
+        time.sleep(90)
+        for i in retry:
+            c = results[i][0]
+            c.pop("_throttled", None)
+            results[i] = work(c)
+
+    # Roles from the last successful run, kept for a company whose known feed failed
+    # today (so they don't vanish and then come back looking "new").
+    prev_roles = {}
+    if OUT.exists() and not fixtures:
+        try:
+            for r in json.loads(OUT.read_text()).get("roles", []):
+                prev_roles.setdefault(r["company"], []).append(r)
+        except (ValueError, KeyError):
+            pass
+    CARRY_DAYS = 3
+
     status, roles, learned, unplaced = [], [], 0, []
     today = now.date()
     # Two companies can lead to the same job board (an acquisition like Moveworks ->
@@ -814,8 +912,28 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
                 owner[key] = (c["name"], match)
     for c, ats, slug, data, err in results:
         if err or not ats:
-            if c["slug"]:
-                note = err or "board not found; check the slug or careers URL"
+            if c["slug"] and err:
+                note = err
+                kept = []
+                for r in prev_roles.get(c["name"], []):
+                    since = r.get("stale_since") or today.isoformat()
+                    if (today - datetime.fromisoformat(since).date()).days < CARRY_DAYS:
+                        kept.append(dict(r, stale_since=since))
+                if kept:
+                    roles.extend(kept)
+                    note += f"; showing {len(kept)} role(s) from the last successful run"
+            elif c["slug"] and "auto-found" in c["notes"]:
+                # A board the radar guessed earlier has stopped answering: forget it and
+                # search again next run instead of failing every day.
+                note = (f"guessed board {c['ats']}:{c['slug']} no longer answers; "
+                        "searching again next run (or paste a job link into careers_url)")
+                c["ats"], c["slug"] = "", ""
+                c["notes"] = re.sub(r"\s*\|?\s*auto-found; spot-check once", "", c["notes"]).strip(" |")
+                learned += 1
+            elif c["slug"]:
+                note = "board not found; check the slug or careers URL"
+            elif c.get("_throttled"):
+                note = "job systems were rate-limiting the search; trying again next run"
             else:
                 m = MISS_NOTE.search(c["notes"])
                 last = datetime.fromisoformat(m.group(1)).date() if m else None
@@ -911,7 +1029,7 @@ def run(fixtures: Path | None, check_only: bool, companies_path: Path | None = N
         k = tkey(r)
         t = titles.get(k)
         is_new_id = r["id"] not in ids
-        r["first_seen"] = ids.setdefault(r["id"], today)
+        r["first_seen"] = ids.setdefault(r["id"], r.get("first_seen") or today)  # carried roles keep their date
         posted = (r.get("posted") or "")[:10]
         if t and r["id"] not in reposts:
             if is_new_id and t.get("ids") and not any(i in live_now for i in t["ids"]):
